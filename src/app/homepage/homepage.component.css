@@ -1,0 +1,70 @@
+.container{
+background-image: url(src/images/grid-3227459_1920.jpg);
+background-color: beige;
+background-repeat: no-repeat;
+background-position: center;
+height: 100vh;
+width: 100%;
+padding: 0;
+margin: 0;
+}
+
+.logo{
+    width: 65vh;
+    height: 30vh;
+    margin: auto;
+    background-image: url(src/images/logo.png);
+    background-position: top;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.home-text::before{
+content: " ";
+border-top: #598790 1px solid;
+display: block;
+margin: auto;
+margin-bottom: 3%;
+width: 30%;
+
+}
+
+.home-text{
+    text-align: center;
+    position: relative;
+    top: 20%;
+    margin: auto;
+    font-family: 'Quicksand', sans-serif;
+    font-style: light;
+
+
+}
+h1{
+    letter-spacing: 0;
+    color: 	#696969;  
+     text-transform: uppercase;
+}
+
+nav{
+    position: relative;
+    text-align: center;
+    margin-top: 12%;
+    
+}
+.nav-box{
+    display: inline-block;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 3vh;
+    padding: 3%;
+}
+
+a{
+    text-decoration: none;
+    color: 	#696969;  
+}
+
+a:hover{
+    letter-spacing: 0.3vh;
+    color: darkslategray;  
+    text-shadow:5px 5px 10px #59879085;
+}

@@ -1,0 +1,32 @@
+<link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+
+
+<div class="container">
+    <div class="logo">
+
+    </div>
+
+    <div class="form-div">
+        <form [formGroup]="loginForm" (ngSubmit)="submitLogin()" [name]="loginForm" (onsubmit)="loginUser()">
+            <div class="option">
+                <input type="email" placeholder="Email"  formControlName="email"/>
+            </div>
+            <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+            </div>
+            <div class="option">
+                <input type="password" placeholder="Password" formControlName="password"/>
+            </div>
+            <div *ngIf="wrongCredentials" class="alert">
+                <ul>
+                    <li>Nieprawidłowe dane.</li>
+                </ul>
+            </div>
+            <div class="option">
+                <button type="submit" class="form-button">
+                    Login
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+

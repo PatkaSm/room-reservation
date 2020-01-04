@@ -1,0 +1,89 @@
+<link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+
+
+<div class="container">
+    <div class="logo">
+    </div>
+    <div class="form-div">
+        <form [formGroup]="registerForm" (ngSubmit)="submitRegister()" [name]="registerForm">
+            <div class="form-option">
+                <input type="email" name="email" formControlName="email" placeholder="Email">
+                <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+                    <div *ngIf="email.errors.required">
+                        <ul>
+                            <li>E-mail jest wymagany.</li>
+                        </ul>
+                    </div>
+                    <div *ngIf="email.errors.email">
+                        <ul>
+                            <li>Wprowadź poprawny adres e-mail</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="form-option">
+                <input type="password" name="password" formControlName="password" placeholder="Hasło">
+                <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+
+                    <div *ngIf="password.errors.required">
+                        <ul>
+                            <li>Hasło jest wymagane.</li>
+                        </ul>
+    
+                    </div>
+                    <div *ngIf="password.errors.minlength">
+                        <ul>
+                            <li>
+                                Hasło musi mieć przynajmniej 8 znaków.
+                            </li>
+                        </ul>
+    
+                    </div>
+                    <div *ngIf="password.errors.pattern">
+                        Hasło musi mieć:
+                        <ul>
+                            <li>Przynajmniej 8 znaków</li>
+                            <li>Małe litery</li>
+                            <li>Wielkie litery</li>
+                            <li>Liczby lub znaki specjalne</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="form-option">
+                <input type="password" name="password" formControlName="repeatPassword" placeholder="Powtórz hasło">
+                <div *ngIf="repeatPassword.invalid && (repeatPassword.dirty || repeatPassword.touched)"
+                class="alert alert-danger">
+                    <div *ngIf="repeatPassword.errors.required">
+                        Musisz ponownie wpisać hasło.
+                    </div>
+                    <div *ngIf="!repeatPassword.validateAreEqual">
+                        Hasła nie są takie same.
+                    </div>
+                </div>
+            </div>
+            <div class="form-option">
+                <input type="text" name="name" title="Minimum 4 znaki" formControlName="firstName" placeholder="Imię">
+                <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="alert alert-danger"></div>
+                
+            </div>
+            <div class="form-option">
+                <input type="text" name="lastname" placeholder="Nazwisko" formControlName="lastName">
+            </div>
+
+            <div class="form-option">
+                <button [disabled]="!registerForm.valid" class="form-button">
+                    Zarejestruj
+                </button>
+            </div>
+            <div class="form-success-msg" *ngIf="success">
+                <h3><strong>Zarejestrowano pomyślnie!</strong></h3> 
+                <h3 > <a routerLink="/login">Kliknij tutaj aby się zalogować! </a></h3> 
+            </div>
+
+            <div class="form-error-msg" *ngIf="failed">
+                     <h3><strong>Taki użytkownik już istnieje!</strong></h3> 
+            </div>
+        </form>
+    </div>
+</div>

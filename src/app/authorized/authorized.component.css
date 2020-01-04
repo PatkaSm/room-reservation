@@ -1,0 +1,90 @@
+*{
+    font-family: 'Quicksand', sans-serif;
+    font-style: light;
+}
+
+
+.container{
+    background-image: url(src/images/tlo2.png);
+    background-color: beige;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    }
+
+nav{
+
+    padding-top: 8%;
+    height: 100vh;
+    width: 20%;
+    background-color: #FFFFFF7F;
+}
+
+nav ul li{
+    padding-top: 20%;
+    list-style-type: none;
+    height: 20vh;
+}
+
+a {
+text-decoration: none;
+color: #598790;
+margin-left: 25%;
+}
+
+.home-page::before{
+    content:" ";
+    height: 4.5%;
+    width: 4%;
+    position: absolute;
+    left: 0%;
+    background-image: url(src/images/pngfuel.com.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.reservation::before{
+    content:" ";
+    height: 4.5%;
+    width: 4%;
+    position: absolute;
+    left: 0%;
+
+    background-image: url(src/images/time.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.reservations::before{
+    content:" ";
+    height: 4.5%;
+    width: 4%;
+    position: absolute;
+    left: 0%;
+    background-image: url(src/images/toppng.com-paper-icon-note-icon-black-474x627.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.contact::before{
+    content:" ";
+    height: 4.5%;
+    width: 4%;
+    position: absolute;
+    left: 0%;
+    background-image: url(src/images/PikPng.com_message-png_2023393.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.logout-button{
+    position: absolute;
+    float: left;
+}
