@@ -7,13 +7,22 @@ import { AuthorizedComponent } from './authorized/authorized.component';
 import { LoginGuard } from './login/login.guard';
 import { LoginService } from './login/login.service';
 import { HomeGuard } from './home.guard';
+import { HomeComponent } from './authorized/home/home.component';
+import { ReserveComponent } from './authorized/reserve/reserve.component';
+import { YourReservesComponent } from './authorized/your-reserves/your-reserves.component';
+import { ContactComponent } from './authorized/contact/contact.component';
 
 
 const routes: Routes = [
   { path: '', component: HomepageComponent, canActivate: [LoginGuard]},
   { path: 'register', component: RegisterComponent, canActivate: [LoginGuard]},
   { path: 'login', component: LoginComponent, canActivate: [LoginGuard]},
-  { path: 'authorized', component: AuthorizedComponent, canActivate: [HomeGuard]},
+  { path: 'home', component: AuthorizedComponent, canActivate: [HomeGuard], children:[
+    {path: 'feed', component: HomeComponent, canActivate: [HomeGuard]},
+    {path: 'reserve', component: ReserveComponent, canActivate: [HomeGuard]},
+    {path: 'your-reserves', component: YourReservesComponent, canActivate: [HomeGuard]},
+    {path: 'contact', component: ContactComponent, canActivate: [HomeGuard]}
+  ]},
 
 
 ];

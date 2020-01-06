@@ -12,6 +12,10 @@ import { LoginService } from './login/login.service';
 import { TokenInterceptor } from './login/token.interceptor';
 import { LoginGuard } from './login/login.guard';
 import { AuthorizedComponent } from './authorized/authorized.component';
+import { HomeComponent } from './authorized/home/home.component';
+import { ReserveComponent } from './authorized/reserve/reserve.component';
+import { YourReservesComponent } from './authorized/your-reserves/your-reserves.component';
+import { ContactComponent } from './authorized/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +23,11 @@ import { AuthorizedComponent } from './authorized/authorized.component';
     RegisterComponent,
     HomepageComponent,
     LoginComponent,
-    AuthorizedComponent
+    AuthorizedComponent,
+    HomeComponent,
+    ReserveComponent,
+    YourReservesComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
