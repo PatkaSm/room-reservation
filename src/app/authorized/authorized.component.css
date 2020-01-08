@@ -4,7 +4,7 @@
 }
 
 .container {
-    background-image: url(src/images/tlo2.png);
+    background-image: url(src/assets/images/tlo2.png);
     background-color: beige;
     background-repeat: no-repeat;
     background-position: center;
@@ -28,6 +28,7 @@ nav {
     height: 100vh;
     width: 20%;
     background-color: #FFFFFF7F;
+    border-right: 1px solid #598790;
 }
 
 nav>div {
@@ -62,7 +63,7 @@ a:hover {
 }
 
 .home-icon {
-    background-image: url(src/images/pngfuel.com.png);
+    background-image: url(src/assets/images/pngfuel.com.png);
     height: 35px;
     width: 35px;
     background-position: center;
@@ -71,7 +72,7 @@ a:hover {
 }
 
 .reservation-icon {
-    background-image: url(src/images/time.png);
+    background-image: url(src/assets/images/time.png);
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -80,7 +81,7 @@ a:hover {
 }
 
 .reservations-icon {
-    background-image: url(src/images/toppng.com-paper-icon-note-icon-black-474x627.png);
+    background-image: url(src/assets/images/toppng.com-paper-icon-note-icon-black-474x627.png);
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -89,7 +90,7 @@ a:hover {
 }
 
 .contact-icon {
-    background-image: url(src/images/PikPng.com_message-png_2023393.png);
+    background-image: url(src/assets/images/PikPng.com_message-png_2023393.png);
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
