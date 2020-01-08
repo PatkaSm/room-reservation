@@ -16,6 +16,9 @@ import { HomeComponent } from './authorized/home/home.component';
 import { ReserveComponent } from './authorized/reserve/reserve.component';
 import { YourReservesComponent } from './authorized/your-reserves/your-reserves.component';
 import { ContactComponent } from './authorized/contact/contact.component';
+import { AuthorizedService } from './authorized/authorized.service';
+import { YourReservesService } from './authorized/your-reserves/your-reserves.service';
+import { ReserveService } from './authorized/reserve/reserve.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,7 @@ import { ContactComponent } from './authorized/contact/contact.component';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [RegisterService, LoginService, LoginGuard, {
+  providers: [RegisterService, LoginService, LoginGuard, AuthorizedService, YourReservesService, ReserveService,{
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptor,
     multi: true

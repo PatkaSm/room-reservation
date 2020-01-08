@@ -1,28 +1,30 @@
 <div class="container">
     <nav>
-        <ul>
-            <li>
-                <a [routerLink]="['./feed']" class="home-page">Strona główna </a>
-
-            </li>
-            <li>
-                <a [routerLink]="['./reserve']" class="reservation">Zarezerwuj salę</a>
-            </li>
-            <li>
-                <a [routerLink]="['./your-reserves']" class="reservations">Twoje rezerwacje</a>
-            </li>
-            <li>
-                <a [routerLink]="['./contact']" class="contact">Kontakt</a>
-            </li>
-            <li (click)="logout()" class="logout-button">
+        <div class="user-container">
+            <div class="greeting">Witaj {{userName}}!</div>
+            <div (click)="logout()" class="logout-button">
                 <a>Wyloguj</a>
-            </li>
-        </ul>
+            </div>
+        </div>
+        <div>
+            <div class="home-icon icon"></div>
+            <a [routerLink]="['./feed']" class="home-page">Strona główna </a>
+        </div>
+        <div>
+            <div class="reservation-icon icon"></div>
+            <a [routerLink]="['./reserve']" class="reservation">Zarezerwuj salę</a>
+        </div>
+        <div>
+            <div class="reservations-icon icon"></div>
+            <a [routerLink]="['./your-reserves']" class="reservations">Twoje rezerwacje</a>
+        </div>
+        <div>
+            <div class="contact-icon icon"></div>
+            <a [routerLink]="['./contact']" class="contact">Kontakt</a>
+        </div>
 
-        
+
     </nav>
-    <div class="content-container">
-        <router-outlet></router-outlet>
-    </div>
+    <router-outlet></router-outlet>
 
 </div>

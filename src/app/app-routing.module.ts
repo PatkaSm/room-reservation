@@ -18,6 +18,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent, canActivate: [LoginGuard]},
   { path: 'login', component: LoginComponent, canActivate: [LoginGuard]},
   { path: 'home', component: AuthorizedComponent, canActivate: [HomeGuard], children:[
+    { path: '', redirectTo: 'feed', pathMatch: 'full' },
     {path: 'feed', component: HomeComponent, canActivate: [HomeGuard]},
     {path: 'reserve', component: ReserveComponent, canActivate: [HomeGuard]},
     {path: 'your-reserves', component: YourReservesComponent, canActivate: [HomeGuard]},

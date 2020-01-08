@@ -1,1 +1,19 @@
-<p>your-reserves works!</p>
+<div class="container">
+    <div class="header">
+        <h1>Twoje rezerwacje</h1>
+    </div>
+    <div class="content">
+        <div class="table">
+            <div class="table-header">
+                <div>Nr pokoju</div>
+                <div>Data</div>
+                <div>Godzina</div>
+            </div>
+            <div class="table-row" *ngFor="let reservation of reservations">
+                <div>{{reservation.room_number}}</div>
+                <div>{{reservation.date}}</div>
+                <div>{{reservation.hour}}</div>
+            </div>
+        </div>
+    </div>
+</div>

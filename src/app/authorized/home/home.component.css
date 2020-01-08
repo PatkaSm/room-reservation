@@ -1,0 +1,43 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 100px 200px 100px 200px;
+    width: 80vw;
+    font-size: 30px;
+    color: #598790;
+    overflow: auto;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 45px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.content>div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 3%;
+}
+
+.content span:first-child {
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+.content span:nth-child(2) {}
+
+.content span {
+    width: 50%;
+    text-align: left;
+}

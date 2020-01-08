@@ -1,6 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-  }
+}
+
+html {}
+
+.form-button {
+    width: 20%;
+    padding: 12px 20px;
+    margin: 3% 0;
+    display: inline-block;
+    border: 1px solid darkslategray;
+    border-radius: 5px;
+    box-sizing: border-box;
+    box-shadow: 5px 5px 16px #07070729;
+    color: darkslategray;
+    background: rgba(255, 255, 255, .8);
+}
+
+.form-button:active,
+ :focus {
+    outline: 0;
+}
+
+.form-button:hover {
+    border: 1px solid #07070729;
+    box-shadow: 5px 5px 16px #DD6344;
+    cursor: pointer;
+}

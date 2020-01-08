@@ -1,1 +1,12 @@
-<p>home works!</p>
+<div class="container" *ngIf="rendered">
+    <div class="header">
+        <div class="introduction">{{user.first_name}} {{user.last_name}}</div>
+        <button class="form-button">Edytuj</button>
+    </div>
+    <div class="content">
+        <div> <span>Email:</span> <span>{{user.email}}</span></div>
+        <div> <span>Nr pokoju:</span> <span>{{user.room_number}}</span></div>
+        <div> <span>Nr telefonu:</span> <span>{{user.phone_number}}</span></div>
+        <div> <span>Konsultacje:</span> <span>{{user.consultations}}</span></div>
+    </div>
+</div>

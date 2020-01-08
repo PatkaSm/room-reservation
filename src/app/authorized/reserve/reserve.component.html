@@ -1,1 +1,38 @@
-<p>reserve works!</p>
+<div class="container">
+    <div class="title">Wybierz kryteria wyszukiwania sali</div>
+    <div class="form">
+        <form [formGroup]="reservationForm" (ngSubmit)="searchForRooms()" [name]="registerForm">
+            <p>Typ rezerwacji</p>
+            <select class="form-control" formControlName="reservationTypeField">
+            <option *ngFor="let type of reservationTypes" value='type'> {{type}}</option>
+        </select>
+            <p>Data</p>
+            <input class="form-control" formControlName="dateField" type="date" />
+            <p>Godzina od</p>
+
+            <select class="form-control" formControlName="hourFromField">
+            <option *ngFor="let hour of hours"> {{hour}}</option>
+        </select>
+            <p>Godzina do</p>
+
+            <select class="form-control" formControlName="hourToField">
+            <option *ngFor="let hour of hours"> {{hour}}</option>
+        </select>
+            <p>Wyposażenie</p>
+
+            <select class="form-control" formControlName="equipmentField">
+            <option *ngFor="let equip of equipmentList"> {{equip}}</option>
+        </select>
+            <p>Liczba miejsc</p>
+
+            <input type="number" min="0" class="form-control" formControlName="numberOfSeats" />
+            <p>Liczba komputerów</p>
+
+            <input type="number" min="0" class="form-control" formControlName="numberOfComputers" />
+
+            <button>Wyszukaj</button>
+        </form>
+    </div>
+    <div class="results">
+    </div>
+</div>

@@ -1,9 +1,9 @@
-*{
+* {
     font-family: 'Quicksand', sans-serif;
     font-style: light;
 }
 
-.container{
+.container {
     background-image: url(src/images/tlo2.png);
     background-color: beige;
     background-repeat: no-repeat;
@@ -12,89 +12,99 @@
     width: 100%;
     padding: 0;
     margin: 0;
-    display:flex;
+    display: flex;
     flex-direction: row;
-    }
+    overflow: auto;
+}
 
-nav{
-
-    padding-top: 8%;
+nav {
+    position: sticky;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-items: left;
+    justify-content: space-between;
     height: 100vh;
     width: 20%;
     background-color: #FFFFFF7F;
 }
 
-nav ul li{
-    padding-top: 20%;
-    list-style-type: none;
-    height: 15vh;
+nav>div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 35px 15px 50px 35px;
+    padding-bottom: 50px;
+}
+
+nav>.user-container {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    margin: 0;
+    border-bottom: 1px solid #598790;
+    background-color: #FFFFFF99;
 }
 
 a {
-text-decoration: none;
-color: #598790;
-margin-left: 25%;
+    text-decoration: none;
+    color: #598790;
+    font-size: 30px;
 }
 
-.home-page::before{
-    content:" ";
-    height: 4.5%;
-    width: 4%;
-    position: absolute;
-    left: 0%;
+a:hover {
+    color: #DD6344;
+}
+
+.greeting {
+    font-size: 35px;
+}
+
+.home-icon {
     background-image: url(src/images/pngfuel.com.png);
+    height: 35px;
+    width: 35px;
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
 }
 
-.reservation::before{
-    content:" ";
-    height: 4.5%;
-    width: 4%;
-    position: absolute;
-    left: 0%;
-
+.reservation-icon {
     background-image: url(src/images/time.png);
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
+    height: 35px;
+    width: 35px;
 }
 
-.reservations::before{
-    content:" ";
-    height: 4.5%;
-    width: 4%;
-    position: absolute;
-    left: 0%;
+.reservations-icon {
     background-image: url(src/images/toppng.com-paper-icon-note-icon-black-474x627.png);
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
+    height: 35px;
+    width: 35px;
 }
 
-.contact::before{
-    content:" ";
-    height: 4.5%;
-    width: 4%;
-    position: absolute;
-    left: 0%;
+.contact-icon {
     background-image: url(src/images/PikPng.com_message-png_2023393.png);
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
+    height: 35px;
+    width: 35px;
 }
-.logout-button:hover{
-    cursor:pointer;
+
+.logout-button>a {
+    font-size: 16px;
 }
-.logout-button::before {
-        content:" ";
-        height: 4.5%;
-        width: 4%;
-        position: absolute;
-        left: 0%;
-        background-image: url(src/images/logout.png);
-        background-position: center;
-        background-size: contain;
-        background-repeat: no-repeat;   
+
+.logout-button:hover {
+    cursor: pointer;
+}
+
+.icon {
+    margin-right: 15px;
 }
