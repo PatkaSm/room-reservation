@@ -1,5 +1,5 @@
 .container {
-    background-image: url(src/images/grid-3227459_1920.jpg);
+    background-image: url(src/assets/images/grid-3227459_1920.jpg);
     background-color: beige;
     background-repeat: no-repeat;
     background-position: center;
@@ -14,7 +14,7 @@
     height: 25vh;
     margin: auto;
     float: right;
-    background-image: url(src/images/logo.png);
+    background-image: url(src/assets/images/logo.png);
     background-position: top;
     background-size: contain;
     background-repeat: no-repeat;

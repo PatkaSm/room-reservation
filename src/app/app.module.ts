@@ -13,12 +13,16 @@ import { TokenInterceptor } from './login/token.interceptor';
 import { LoginGuard } from './login/login.guard';
 import { AuthorizedComponent } from './authorized/authorized.component';
 import { HomeComponent } from './authorized/home/home.component';
-import { ReserveComponent } from './authorized/reserve/reserve.component';
-import { YourReservesComponent } from './authorized/your-reserves/your-reserves.component';
+import { ReservationComponent } from './authorized/reservation/reservation.component';
+import { YourReservationsComponent } from './authorized/your-reservations/your-reservations.component';
 import { ContactComponent } from './authorized/contact/contact.component';
 import { AuthorizedService } from './authorized/authorized.service';
-import { YourReservesService } from './authorized/your-reserves/your-reserves.service';
-import { ReserveService } from './authorized/reserve/reserve.service';
+import { YourReservationsService } from './authorized/your-reservations/your-reservations.service';
+import { ReservationService } from './authorized/reservation/reservation.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDatepickerModule, MatNativeDateModule, MatFormFieldModule, MatInputModule } from '@angular/material';
+import { DatePipe } from '@angular/common';
+import { AlertComponent } from './authorized/reservation/alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -28,9 +32,10 @@ import { ReserveService } from './authorized/reserve/reserve.service';
     LoginComponent,
     AuthorizedComponent,
     HomeComponent,
-    ReserveComponent,
-    YourReservesComponent,
-    ContactComponent
+    ReservationComponent,
+    YourReservationsComponent,
+    ContactComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
@@ -38,8 +43,13 @@ import { ReserveService } from './authorized/reserve/reserve.service';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatNativeDateModule,
+    MatDatepickerModule
   ],
-  providers: [RegisterService, LoginService, LoginGuard, AuthorizedService, YourReservesService, ReserveService,{
+  providers: [DatePipe, RegisterService, LoginService, LoginGuard, AuthorizedService, YourReservationsService, ReservationService, {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptor,
     multi: true

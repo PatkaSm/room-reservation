@@ -3,8 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { default as configData } from 'src/app/config';
 
 @Injectable()
-export class ReserveService {
-    url = configData.host + 'rooms/show_available_rooms/';
+export class YourReservationsService {
+    url = configData.host + 'reservations/my_reservations/';
     constructor(private http: HttpClient) { }
-    getRooms: any = (data: any) => this.http.post(this.url, data, {observe: 'response'});
+    getDetails: any = () => this.http.get(this.url, {observe: 'response'});
 }

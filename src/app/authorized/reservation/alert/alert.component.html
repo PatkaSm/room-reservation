@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="header">
+        <h1>Placeholder sala</h1>
+    </div>
+    <div class="content">
+        <div class="row">
+            <div class="col">
+                <span class="description">Typ rezerwacji: </span>
+                <span class="value"> {{chosenRoom.reservation_type.value}} </span>
+            </div>
+            <div class="col">
+                <span class="description">Godzina: </span>
+                <span class="value">{{chosenRoom.reservation_hour}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <span class="description ">Data:</span>
+                <span class="value">{{chosenRoom.reservation_date}}</span>
+            </div>
+            <div class="col">
+                <span class="description">Placeholder </span>
+                <span class="value">Placeholder</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <span class="description">Ilość miejsc: </span>
+                <span class="value">{{chosenRoom.number_of_seats}}</span>
+            </div>
+            <div class="col">
+                <span class="description">Wyposażenie dodatkowe: </span>
+                <span class="value">{{chosenRoom.equipment}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="summary">
+        <button class="form-button" (click)="confirm()">Zarezerwuj</button>
+        <button class="form-button" (click)="goBack()">Anuluj</button>
+    </div>
+</div>

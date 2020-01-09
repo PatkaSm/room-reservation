@@ -8,8 +8,8 @@ import { LoginGuard } from './login/login.guard';
 import { LoginService } from './login/login.service';
 import { HomeGuard } from './home.guard';
 import { HomeComponent } from './authorized/home/home.component';
-import { ReserveComponent } from './authorized/reserve/reserve.component';
-import { YourReservesComponent } from './authorized/your-reserves/your-reserves.component';
+import { ReservationComponent } from './authorized/reservation/reservation.component';
+import { YourReservationsComponent } from './authorized/your-reservations/your-reservations.component';
 import { ContactComponent } from './authorized/contact/contact.component';
 
 
@@ -20,8 +20,8 @@ const routes: Routes = [
   { path: 'home', component: AuthorizedComponent, canActivate: [HomeGuard], children:[
     { path: '', redirectTo: 'feed', pathMatch: 'full' },
     {path: 'feed', component: HomeComponent, canActivate: [HomeGuard]},
-    {path: 'reserve', component: ReserveComponent, canActivate: [HomeGuard]},
-    {path: 'your-reserves', component: YourReservesComponent, canActivate: [HomeGuard]},
+    {path: 'reserve', component: ReservationComponent, canActivate: [HomeGuard]},
+    {path: 'your-reservations', component: YourReservationsComponent, canActivate: [HomeGuard]},
     {path: 'contact', component: ContactComponent, canActivate: [HomeGuard]}
   ]},
 

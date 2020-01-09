@@ -1,0 +1,42 @@
+.container {
+    width: 55vw;
+    height: 45vh;
+    background-color: rgba(255, 255, 255, 0.85);
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-size: 25px;
+    padding: 15px;
+}
+
+.header {
+    justify-self: flex-start;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 100%;
+}
+
+.col {
+    text-align: left;
+    margin: 15px;
+}
+
+.description {
+    font-weight: bold;
+}
+
+.summary {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}

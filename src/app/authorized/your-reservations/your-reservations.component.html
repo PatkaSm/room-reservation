@@ -10,7 +10,7 @@
                 <div>Godzina</div>
             </div>
             <div class="table-row" *ngFor="let reservation of reservations">
-                <div>{{reservation.room_number}}</div>
+                <div>{{reservation.room_number}} {{reservation.room_wing}}</div>
                 <div>{{reservation.date}}</div>
                 <div>{{reservation.hour}}</div>
             </div>
