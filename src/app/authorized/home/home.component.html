@@ -1,97 +1,118 @@
 <div class="container" *ngIf="rendered">
-    <div class="header">
-        <span>Kliknij na pole jeśli chcesz je edytować.</span>
-        <div *ngIf="showMessage" class="message">
-            {{message}}
+    <div class="user-container">
+        <div class="header">
+            <span>Kliknij na pole jeśli chcesz je edytować.</span>
+            <div *ngIf="showMessage" class="message">
+                {{message}}
+            </div>
         </div>
-    </div>
-    <div class="content">
-        <div>
-            <span> Imie: </span> <span *ngIf="!firstNameField" (click)="editFirstName()">{{user.first_name}}</span>
-            <span *ngIf="firstNameField" class="showed"><input class="profile-input" [(ngModel)]="user.first_name" type="text"> 
+        <div class="content">
+            <div>
+                <span> Imie: </span> <span *ngIf="!firstNameField" (click)="editFirstName()">{{user.first_name}}</span>
+                <span *ngIf="firstNameField" class="showed"><input class="profile-input" [(ngModel)]="user.first_name" type="text"> 
                 <img src="assets/images/save.png" (click)="sendFirstName()" /> </span>
-        </div>
+            </div>
 
-        <div>
-            <span> Nazwisko: </span> <span *ngIf="!lastNameField" (click)="editLastName()" >{{user.last_name}}</span>
-            <span *ngIf="lastNameField" class="showed"><input class="profile-input" [(ngModel)]="user.last_name" type="text">
+            <div>
+                <span> Nazwisko: </span> <span *ngIf="!lastNameField" (click)="editLastName()">{{user.last_name}}</span>
+                <span *ngIf="lastNameField" class="showed"><input class="profile-input" [(ngModel)]="user.last_name" type="text">
                 <img src="assets/images/save.png" (click)="sendLastName()" /></span>
-        </div>
+            </div>
 
 
-        <div>
-            <span>Email:</span> <span *ngIf="!emailField" (click)="editEmail()">{{user.email}}</span>
-            <span *ngIf="emailField" class="showed"><input class="profile-input" [(ngModel)]="user.email" type="text"><img
+            <div>
+                <span>Email:</span> <span *ngIf="!emailField" (click)="editEmail()">{{user.email}}</span>
+                <span *ngIf="emailField" class="showed"><input class="profile-input" [(ngModel)]="user.email" type="text"><img
                 src="assets/images/save.png" (click)="sendEmail()" /></span>
-        </div>
+            </div>
 
-        <div>
-            <span>Nr pokoju:</span> <span *ngIf="!roomNumberField" (click)="editRoomNumber()">{{user.room_number}}</span>
-            <span *ngIf="roomNumberField" class="showed"><input class="profile-input" [(ngModel)]="user.room_number" type="text"><img
+            <div>
+                <span>Nr pokoju:</span> <span *ngIf="!roomNumberField" (click)="editRoomNumber()">{{user.room_number}}</span>
+                <span *ngIf="roomNumberField" class="showed"><input class="profile-input" [(ngModel)]="user.room_number" type="text"><img
                 src="assets/images/save.png" (click)="sendRoomNumber()" /></span>
-        </div>
+            </div>
 
-        <div>
-            <span>Nr telefonu:</span> <span *ngIf="!phoneNumberField" (click)="editPhoneNumber()"> {{user.phone_number}}</span>
-            <span *ngIf="phoneNumberField" class="showed"><input class="profile-input" [(ngModel)]="user.phone_number" type="text"><img
+            <div>
+                <span>Nr telefonu:</span> <span *ngIf="!phoneNumberField" (click)="editPhoneNumber()"> {{user.phone_number}}</span>
+                <span *ngIf="phoneNumberField" class="showed"><input class="profile-input" [(ngModel)]="user.phone_number" type="text"><img
                 src="assets/images/save.png" (click)="sendPhoneNumber()" /></span>
-        </div>
+            </div>
 
-        <div>
-            <span>Konsultacje:</span> <span *ngIf="!consultationsField" (click)="editConsultations()">{{user.consultations}}</span>
-            <span *ngIf="consultationsField" class="showed"><textarea class="profile-input consultations" [(ngModel)]="user.consultations" type="text"></textarea><img
+            <div>
+                <span>Konsultacje:</span> <span *ngIf="!consultationsField" (click)="editConsultations()">{{user.consultations}}</span>
+                <span *ngIf="consultationsField" class="showed"><textarea class="profile-input consultations" [(ngModel)]="user.consultations" type="text"></textarea><img
                 src="assets/images/save.png" (click)="sendConsultations()" /></span>
-        </div>
+            </div>
 
-        <p (click)=showPassword()>Zmiana hasła</p>
-        <div *ngIf="showPasswordField" class="passwd">
-            <form [formGroup]="changePasswordForm" [name]="registerForm" (ngSubmit)="submitPassword()">
-                <div class="form-option">
-                    <input type="password" name="password" formControlName="password" placeholder="Wpisz nowe hasło">
-                    <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
-    
-                        <div *ngIf="password.errors.required">
-                            <ul>
-                                <li>Hasło jest wymagane.</li>
-                            </ul>
-        
-                        </div>
-                        <div *ngIf="password.errors.minlength">
-                            <ul>
-                                <li>
-                                    Hasło musi mieć przynajmniej 8 znaków.
-                                </li>
-                            </ul>
-        
-                        </div>
-                        <div *ngIf="password.errors.pattern">
-                            Hasło musi mieć:
-                            <ul>
-                                <li>Przynajmniej 8 znaków</li>
-                                <li>Małe litery</li>
-                                <li>Wielkie litery</li>
-                                <li>Liczby lub znaki specjalne</li>
-                            </ul>
+            <p (click)=showPassword()>Zmiana hasła</p>
+            <div *ngIf="showPasswordField" class="passwd">
+                <form [formGroup]="changePasswordForm" [name]="registerForm" (ngSubmit)="submitPassword()">
+                    <div class="form-option">
+                        <input type="password" name="password" formControlName="password" placeholder="Wpisz nowe hasło">
+                        <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+
+                            <div *ngIf="password.errors.required">
+                                <ul>
+                                    <li>Hasło jest wymagane.</li>
+                                </ul>
+
+                            </div>
+                            <div *ngIf="password.errors.minlength">
+                                <ul>
+                                    <li>
+                                        Hasło musi mieć przynajmniej 8 znaków.
+                                    </li>
+                                </ul>
+
+                            </div>
+                            <div *ngIf="password.errors.pattern">
+                                Hasło musi mieć:
+                                <ul>
+                                    <li>Przynajmniej 8 znaków</li>
+                                    <li>Małe litery</li>
+                                    <li>Wielkie litery</li>
+                                    <li>Liczby lub znaki specjalne</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="form-option">
-                    <span><input type="password" name="password" formControlName="repeatPassword" placeholder="Powtórz nowe hasło"><img
+                    <div class="form-option">
+                        <span><input type="password" name="password" formControlName="repeatPassword" placeholder="Powtórz nowe hasło"><img
                         src="assets/images/save.png" (click)="savePassword()" /></span>
-                    <div *ngIf="repeatPassword.invalid && (repeatPassword.dirty || repeatPassword.touched)"
-                    class="alert alert-danger">
-                        <div *ngIf="repeatPassword.errors.required">
-                            Musisz ponownie wpisać hasło.
-                        </div>
-                        <div *ngIf="!repeatPassword.validateAreEqual">
-                            Hasła nie są takie same.
+                        <div *ngIf="repeatPassword.invalid && (repeatPassword.dirty || repeatPassword.touched)" class="alert alert-danger">
+                            <div *ngIf="repeatPassword.errors.required">
+                                Musisz ponownie wpisać hasło.
+                            </div>
+                            <div *ngIf="!repeatPassword.validateAreEqual">
+                                Hasła nie są takie same.
+                            </div>
                         </div>
                     </div>
-                </div>
-            </form>
+                </form>
+            </div>
+
         </div>
-
     </div>
+    <div *ngIf="isAdmin">
+        <div class="season">
+            <h3>Rok akademicki</h3>
+            <div class="description">
+                <p>Start roku akademickiego: </p>
+                <p>Koniec roku akademickiego: </p>
+                <p>Początek semestru zimowego: </p>
+                <p>Koniec semestru zimowego: </p>
+                <p>Początek semestru letniego: </p>
+                <p>Koniec semestru letniego: </p>
+            </div>
+            <div class="values">
+                <p>{{seasonData.season_start}} </p>
+                <p>{{seasonData.season_end}}</p>
+                <p>{{seasonData.winter_semester_start}} </p>
+                <p>{{seasonData.winter_semester_end}} </p>
+                <p>{{seasonData.summer_semester_start}} </p>
+                <p>{{seasonData.summer_semester_end}} </p>
 
-
+            </div>
+        </div>
+    </div>
 </div>

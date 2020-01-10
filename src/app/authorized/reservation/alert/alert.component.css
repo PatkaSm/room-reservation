@@ -21,6 +21,10 @@
     flex-direction: column;
 }
 
+.container>h4 {
+    text-align: justify;
+}
+
 .row {
     display: grid;
     grid-template-columns: 1fr 1fr;

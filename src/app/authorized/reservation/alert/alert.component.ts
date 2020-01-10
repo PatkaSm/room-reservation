@@ -13,6 +13,8 @@ export class AlertComponent implements OnInit {
   @Output() hideAlert = new EventEmitter();
   constructor(private reserveService: ReservationService, private router: Router) { }
   isFinished=false;
+  alert= false;
+  errorMsg;
   ngOnInit() {
   }
   confirm = () => {
@@ -26,6 +28,8 @@ export class AlertComponent implements OnInit {
     this.reserveService.makeReservation(data).subscribe(response => {
       this.router.navigate(['home/your-reservations']);
     }, error => {
+      this.alert = true;
+      this.errorMsg = error.error.errors;
       throwError(error);
     })
   }

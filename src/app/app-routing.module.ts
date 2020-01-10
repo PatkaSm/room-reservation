@@ -5,12 +5,13 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { AuthorizedComponent } from './authorized/authorized.component';
 import { LoginGuard } from './login/login.guard';
-import { LoginService } from './login/login.service';
 import { HomeGuard } from './home.guard';
 import { HomeComponent } from './authorized/home/home.component';
 import { ReservationComponent } from './authorized/reservation/reservation.component';
 import { YourReservationsComponent } from './authorized/your-reservations/your-reservations.component';
 import { ContactComponent } from './authorized/contact/contact.component';
+import { AdminComponent } from './authorized/admin/admin.component';
+import { UsersComponent } from './authorized/admin/users/users.component';
 
 
 const routes: Routes = [
@@ -22,11 +23,12 @@ const routes: Routes = [
     {path: 'feed', component: HomeComponent, canActivate: [HomeGuard]},
     {path: 'reserve', component: ReservationComponent, canActivate: [HomeGuard]},
     {path: 'your-reservations', component: YourReservationsComponent, canActivate: [HomeGuard]},
-    {path: 'contact', component: ContactComponent, canActivate: [HomeGuard]}
+    {path: 'contact', component: ContactComponent, canActivate: [HomeGuard]},
+    { path: 'reservations-admin', component: AdminComponent, canActivate: [HomeGuard]},
+    { path: 'users-admin', component: UsersComponent, canActivate: [HomeGuard]}
   ]},
-
-
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

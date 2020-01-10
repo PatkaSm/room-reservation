@@ -24,6 +24,11 @@ import { MatDatepickerModule, MatNativeDateModule, MatFormFieldModule, MatInputM
 import { DatePipe } from '@angular/common';
 import { AlertComponent } from './authorized/reservation/alert/alert.component';
 import { DeleteAlertComponent } from './authorized/your-reservations/delete-alert/delete-alert.component';
+import { AdminComponent } from './authorized/admin/admin.component';
+import { HomeService } from './authorized/home/home.service';
+import { AdminService } from './authorized/admin/admin.service';
+import { UsersComponent } from './authorized/admin/users/users.component';
+import { UsersService } from './authorized/admin/users/users.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +42,9 @@ import { DeleteAlertComponent } from './authorized/your-reservations/delete-aler
     YourReservationsComponent,
     ContactComponent,
     AlertComponent,
-    DeleteAlertComponent
+    DeleteAlertComponent,
+    AdminComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
@@ -51,11 +58,13 @@ import { DeleteAlertComponent } from './authorized/your-reservations/delete-aler
     MatNativeDateModule,
     MatDatepickerModule
   ],
-  providers: [DatePipe, RegisterService, LoginService, LoginGuard, AuthorizedService, YourReservationsService, ReservationService, {
-    provide: HTTP_INTERCEPTORS,
-    useClass: TokenInterceptor,
-    multi: true
-  }],
+  providers: [DatePipe, RegisterService, LoginService,
+    LoginGuard, AuthorizedService, YourReservationsService, ReservationService, AdminService, HomeService, UsersService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

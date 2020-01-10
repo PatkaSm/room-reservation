@@ -1,24 +1,27 @@
 <div class="container">
     <div class="header">
-        <p>Twoje rezerwacje</p>
+        <p>Lista użytkowników</p>
         <div *ngIf="message" class="message">
             <h5>{{success}}</h5>
         </div>
     </div>
     <div class="content">
+        <div class="filter">
+            <input [(ngModel)]="filterValue" (keyup)="filter($event)" placeholder="Szukaj...">
+        </div>
         <div class="table">
             <div class="table-header">
-                <div class="table-box">Nr pokoju</div>
-                <div class="table-box">Skrzydło</div>
-                <div class="table-box">Data</div>
-                <div class="table-box">Godzina</div>
+                <div class="table-box">Imię</div>
+                <div class="table-box">Nazwisko</div>
+                <div class="table-box">Mail</div>
+                <div class="table-box">Admin</div>
                 <div class="table-box">Usuń</div>
             </div>
-            <div class="table-row" *ngFor="let reservation of reservations">
-                <div class="table-box">{{reservation.room_number}}</div>
-                <div class="table-box">{{reservation.room_wing}}</div>
-                <div class="table-box">{{reservation.date}}</div>
-                <div class="table-box">{{reservation.hour}}</div>
+            <div class="table-row" *ngFor="let user of results">
+                <div class="table-box">{{user.first_name}}</div>
+                <div class="table-box">{{user.last_name}}</div>
+                <div class="table-box">{{user.email}}</div>
+                <div class="table-box">{{user.is_admin}}</div>
                 <div class="table-box">
                     <img src="assets/images/trash.png" (click)="delete(true, reservation.id)" />
                 </div>

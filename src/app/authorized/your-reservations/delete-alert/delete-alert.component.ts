@@ -23,7 +23,7 @@ export class DeleteAlertComponent implements OnInit {
     this.reserveService.deleteReservation(this.chosenReservation).subscribe(response => {
       this.hideAlert.emit();
       this.refresh.emit();
-      showMessage
+      this.msg.emit();
     }, error => {
       throwError(error);
     });

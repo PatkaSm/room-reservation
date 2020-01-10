@@ -16,11 +16,13 @@
         </div>
         <div>
             <div class="reservations-icon icon"></div>
-            <a [routerLink]="['./your-reservations']" class="reservations">Twoje rezerwacje</a>
+            <a *ngIf="!isAdmin" [routerLink]="['./your-reservations']" class="reservations">Twoje rezerwacje</a>
+            <a *ngIf="isAdmin" [routerLink]="['./reservations-admin']" class="reservations">Rezerwacje</a>
         </div>
         <div>
             <div class="contact-icon icon"></div>
-            <a [routerLink]="['./contact']" class="contact">Kontakt</a>
+            <a *ngIf="!isAdmin" [routerLink]="['./contact']" class="contact">Kontakt</a>
+            <a *ngIf="isAdmin" [routerLink]="['./users-admin']" class="contact">Użytkownicy</a>
         </div>
 
 

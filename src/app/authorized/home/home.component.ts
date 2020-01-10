@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from './home.service';
 import { throwError } from 'rxjs';
+import { AdminService } from '../admin/admin.service';
 
 
 @Component({
@@ -9,7 +10,7 @@ import { throwError } from 'rxjs';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  constructor(private homeService: HomeService) { }
+  constructor(private homeService: HomeService, private adminService: AdminService) { }
   firstNameField = false;
   lastNameField = false;
   emailField = false;
@@ -21,12 +22,24 @@ export class HomeComponent implements OnInit {
   rendered = false;
   message = 'Pomyślnie zapisano zmiany!';
   showMessage = false;
+  isAdmin = false;
+  seasonData;
   ngOnInit() {
     this.homeService.getDetails().subscribe(response => {
       this.user = response.body;
       this.rendered = true;
     }, error => {
       throwError(error);
+    });
+    this.adminService.isAdmin().subscribe(response => {
+      this.isAdmin = true;
+      this.adminService.getSeason().subscribe(response => {
+        this.seasonData = response.body;
+      }, error => {
+        throwError(error);
+      });
+    }, error => {
+      this.isAdmin = false;
     });
   }
 

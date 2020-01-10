@@ -15,13 +15,12 @@
     align-items: left;
     font-size: 25px;
     margin-bottom: 10%;
-    color:#DD6344;
+    color: #DD6344;
 }
 
-.message{
-    color:green;
+.message {
+    color: green;
     padding-top: 3%;
-
 }
 
 .content {
@@ -43,19 +42,17 @@
     margin-right: 15px;
 }
 
-
 .content span {
     width: 50%;
     text-align: left;
-    align-items:center;
+    align-items: center;
 }
 
-
-.content span:nth-child(2){
+.content span:nth-child(2) {
     cursor: pointer;
 }
 
-.content p:hover{
+.content p:hover {
     cursor: pointer;
 }
 
@@ -80,13 +77,13 @@ input {
     padding: 5px;
 }
 
-
-.profile-input{
-    background-color: rgb(0,0,0, 0.1);
+.profile-input {
+    background-color: rgb(0, 0, 0, 0.1);
     font-family: 'Quicksand', sans-serif;
     color: #598790;
 }
-textarea{
+
+textarea {
     font-size: 30px;
     height: 30vh;
     width: 50vh;
@@ -97,15 +94,32 @@ textarea{
     border: none;
 }
 
-.content>.passwd{
+.content>.passwd {
     display: flex;
     flex-direction: column;
 }
-.passwd > .repeat {
+
+.passwd>.repeat {
     display: flex;
     flex-direction: row;
 }
 
-.passwd input{
+.passwd input {
     margin-bottom: 15px;
+}
+
+.season {
+    margin-top: 20px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.season>.description {
+    font-weight: bold;
+    grid-column: 1;
+}
+
+.season>.values {
+    grid-column: 2;
 }
