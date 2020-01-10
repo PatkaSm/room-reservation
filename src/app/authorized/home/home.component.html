@@ -1,6 +1,9 @@
 <div class="container" *ngIf="rendered">
     <div class="header">
         <span>Kliknij na pole jeśli chcesz je edytować.</span>
+        <div *ngIf="showMessage" class="message">
+            {{message}}
+        </div>
     </div>
     <div class="content">
         <div>
@@ -41,10 +44,51 @@
         </div>
 
         <p (click)=showPassword()>Zmiana hasła</p>
-        <div *ngIf="showPasswordField" class="k">
-            <span>Hasło dotychczasowe:</span> <span><input class="profile-input" [(ngModel)]="user.password" type="text"></span> 
-            <span>Nowe hasło: </span> <span class="repeat"><input class="profile-input" [(ngModel)]="user.password" type="text"><img
-                src="assets/images/save.png" (click)="sendConsultations()" /></span>
+        <div *ngIf="showPasswordField" class="passwd">
+            <form [formGroup]="changePasswordForm" [name]="registerForm" (ngSubmit)="submitPassword()">
+                <div class="form-option">
+                    <input type="password" name="password" formControlName="password" placeholder="Wpisz nowe hasło">
+                    <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+    
+                        <div *ngIf="password.errors.required">
+                            <ul>
+                                <li>Hasło jest wymagane.</li>
+                            </ul>
+        
+                        </div>
+                        <div *ngIf="password.errors.minlength">
+                            <ul>
+                                <li>
+                                    Hasło musi mieć przynajmniej 8 znaków.
+                                </li>
+                            </ul>
+        
+                        </div>
+                        <div *ngIf="password.errors.pattern">
+                            Hasło musi mieć:
+                            <ul>
+                                <li>Przynajmniej 8 znaków</li>
+                                <li>Małe litery</li>
+                                <li>Wielkie litery</li>
+                                <li>Liczby lub znaki specjalne</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-option">
+                    <span><input type="password" name="password" formControlName="repeatPassword" placeholder="Powtórz nowe hasło"><img
+                        src="assets/images/save.png" (click)="savePassword()" /></span>
+                    <div *ngIf="repeatPassword.invalid && (repeatPassword.dirty || repeatPassword.touched)"
+                    class="alert alert-danger">
+                        <div *ngIf="repeatPassword.errors.required">
+                            Musisz ponownie wpisać hasło.
+                        </div>
+                        <div *ngIf="!repeatPassword.validateAreEqual">
+                            Hasła nie są takie same.
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
 
     </div>

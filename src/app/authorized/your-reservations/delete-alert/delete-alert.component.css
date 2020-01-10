@@ -1,0 +1,24 @@
+.container{
+    width: 35vw;
+    height: 25vh;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 1px solid #DD6344;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-size: 25px;
+    padding: 15px;
+    border-radius: 15px;
+    color: #DD6344;
+}
+
+.content{
+    padding: 5%;
+}
+
+.summary {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}

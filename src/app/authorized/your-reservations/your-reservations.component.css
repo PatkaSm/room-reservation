@@ -2,7 +2,22 @@
     display: flex;
     flex-direction: column;
     width: 80vw;
-    padding: 150px;
+    padding: 50px 100px 50px 100px;
+    color: #598790;
+    font-weight: bold;
+}
+
+.header{
+    font-size: 45px;
+    margin: auto;
+    color:#DD6344;
+    margin-bottom: 5%;
+}
+
+.message{
+    color:green;
+    padding-top: 3%;
+
 }
 
 .table {
@@ -14,10 +29,39 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    background-color: #59879085;
+    font-weight: bold;
+    border-radius: 15px;
+    color: white;
+
 }
 
 .table-row {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    border: 1px solid #59879085;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+.table-box{
+    padding:2%;
+}
+
+img{
+    height: 25px;
+}
+
+img:hover{
+    cursor: pointer;
+
+}
+
+.deleteAlert {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+    transform: translate(-50%, -50%);
 }

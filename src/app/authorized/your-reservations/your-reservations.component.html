@@ -1,19 +1,30 @@
 <div class="container">
     <div class="header">
-        <h1>Twoje rezerwacje</h1>
+        <p>Twoje rezerwacje</p>
+        <div *ngIf="showMessage" class="message">
+            {{message}}
+        </div>
     </div>
     <div class="content">
         <div class="table">
             <div class="table-header">
-                <div>Nr pokoju</div>
-                <div>Data</div>
-                <div>Godzina</div>
+                <div class="table-box">Nr pokoju</div>
+                <div class="table-box">Skrzydło</div>
+                <div class="table-box">Data</div>
+                <div class="table-box">Godzina</div>
+                <div class="table-box">Usuń</div>
             </div>
             <div class="table-row" *ngFor="let reservation of reservations">
-                <div>{{reservation.room_number}} {{reservation.room_wing}}</div>
-                <div>{{reservation.date}}</div>
-                <div>{{reservation.hour}}</div>
+                <div class="table-box">{{reservation.room_number}}</div>
+                <div class="table-box">{{reservation.room_wing}}</div>
+                <div class="table-box">{{reservation.date}}</div>
+                <div class="table-box">{{reservation.hour}}</div>
+                <div class="table-box">
+                    <img src="assets/images/trash.png" (click)="delete(true, reservation.id)"/>
+                </div>
             </div>
+
+            <app-delete-alert *ngIf="showAlert" class="deleteAlert" (refresh)="ngOnInit()" (hideAlert)="hideAlert()" [chosenReservation]="chosenReservationId"></app-delete-alert>
         </div>
     </div>
 </div>

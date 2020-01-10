@@ -1,0 +1,40 @@
+.container{
+    width: 80vw;
+    height: 100%;
+    color: #598790;
+}
+
+.header{
+    width: 100%;
+    height: 10%;
+    float: top;
+    font-size: large;
+    padding: 3%;
+    font-size: 55px;
+}
+
+.content{
+    padding-top: 5%;
+    padding-left: 3%;
+    height: 90%;
+    width: 35%;
+    float: left;
+    font-size: 30px;
+}
+.content span{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 3%;
+}
+
+.content span:first-child {
+    color: #DD6344;
+}
+
+.map{
+    height: 90%;
+    width: 65%;
+    align-items: center;
+    float: right;
+    padding:5%;
+}

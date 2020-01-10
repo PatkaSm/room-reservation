@@ -1,5 +1,92 @@
 .container {
-    padding: 100px;
+    padding: 50px;
+    width: 80vw;
+    height: 100vh;
+}
+
+.container input,select{
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.6);
+    font-family: 'Quicksand', sans-serif;
+    color: #598790;
+    border: none;
+    font-size: 25px;
+}
+
+.title{
+    float: top;
+    font-size: 35px;
+    color: #DD6344;
+}
+
+.form{
+    height: 90%;
+    width: 30%;
+    float: left;
+}
+.rooms{
+    float: right;
+    height: 90vh;
+    width: 70%;
+}
+
+.form-box{
+    font-size: 25px;
+    color: #598790;
+    padding-top: 5%;
+
+
+}
+
+data{
+    flex-direction: row !important;
+}
+
+.results{
+    float: right;
+}
+
+
+.result{
+    margin-left: 5%;
+    width: 200px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border: 1px solid #DD6344;
+    color: #DD6344;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 20px;
+}
+
+.hours{
+    border: 1px solid #598790;
+    color: #598790;
+}
+
+.result-box{
+    float: left;
+    padding: 3%;
+    overflow-y: auto;
+    width: 50%;
+    height: 90%;
+
+}
+
+.result-box-hours{
+    float: right;
+    padding: 3%;
+    width: 50%;
+}
+
+.result-box p{
+color: #598790;
+}
+
+.result:hover{
+    background-color: rgba(255, 255, 255, 1);
+    cursor: pointer;
+    transform: scale(1.15);
 }
 
 .reservationAlert {
@@ -9,3 +96,5 @@
     z-index: 2;
     transform: translate(-50%, -50%);
 }
+
+

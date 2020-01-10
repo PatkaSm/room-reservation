@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     padding: 100px 200px 100px 200px;
-    width: 80vw;
+    width: 70vw;
     font-size: 30px;
     color: #598790;
     overflow: auto;
@@ -10,11 +10,18 @@
 
 .header {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+    align-items: left;
     font-size: 25px;
     margin-bottom: 10%;
+    color:#DD6344;
+}
+
+.message{
+    color:green;
+    padding-top: 3%;
+
 }
 
 .content {
@@ -36,12 +43,20 @@
     margin-right: 15px;
 }
 
-.content span:nth-child(2) {}
 
 .content span {
     width: 50%;
     text-align: left;
     align-items:center;
+}
+
+
+.content span:nth-child(2){
+    cursor: pointer;
+}
+
+.content p:hover{
+    cursor: pointer;
 }
 
 img {
@@ -82,11 +97,15 @@ textarea{
     border: none;
 }
 
-.content>.k{
+.content>.passwd{
     display: flex;
     flex-direction: column;
 }
-.k > .repeat {
+.passwd > .repeat {
     display: flex;
     flex-direction: row;
+}
+
+.passwd input{
+    margin-bottom: 15px;
 }

@@ -1,6 +1,6 @@
 <div class="container">
     <div class="header">
-        <h1>Placeholder sala</h1>
+        <h1>Sala nr. {{chosenRoom.room}}</h1>
     </div>
     <div class="content">
         <div class="row">
@@ -19,8 +19,8 @@
                 <span class="value">{{chosenRoom.reservation_date}}</span>
             </div>
             <div class="col">
-                <span class="description">Placeholder </span>
-                <span class="value">Placeholder</span>
+                <span class="description">Wyposażenie dodatkowe: </span>
+                <span class="value">{{chosenRoom.equipment}}</span>
             </div>
         </div>
         <div class="row">
@@ -28,14 +28,10 @@
                 <span class="description">Ilość miejsc: </span>
                 <span class="value">{{chosenRoom.number_of_seats}}</span>
             </div>
-            <div class="col">
-                <span class="description">Wyposażenie dodatkowe: </span>
-                <span class="value">{{chosenRoom.equipment}}</span>
-            </div>
         </div>
     </div>
     <div class="summary">
-        <button class="form-button" (click)="confirm()">Zarezerwuj</button>
+        <button class="form-button form-button-success" (click)="confirm()">Zarezerwuj</button>
         <button class="form-button" (click)="goBack()">Anuluj</button>
     </div>
 </div>

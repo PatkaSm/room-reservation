@@ -23,6 +23,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDatepickerModule, MatNativeDateModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 import { DatePipe } from '@angular/common';
 import { AlertComponent } from './authorized/reservation/alert/alert.component';
+import { DeleteAlertComponent } from './authorized/your-reservations/delete-alert/delete-alert.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { AlertComponent } from './authorized/reservation/alert/alert.component';
     ReservationComponent,
     YourReservationsComponent,
     ContactComponent,
-    AlertComponent
+    AlertComponent,
+    DeleteAlertComponent
   ],
   imports: [
     BrowserModule,

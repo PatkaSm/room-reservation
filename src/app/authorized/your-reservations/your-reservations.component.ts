@@ -8,7 +8,11 @@ import { throwError } from 'rxjs';
   styleUrls: ['./your-reservations.component.css']
 })
 export class YourReservationsComponent implements OnInit {
-  reservations = []
+  reservations = [];
+  showAlert = false;
+  chosenReservationId;
+  message = false;
+  success = 'Pomyślnie usunięto rezerwację';
   constructor(private reserveService: YourReservationsService) { }
 
   ngOnInit() {
@@ -16,7 +20,22 @@ export class YourReservationsComponent implements OnInit {
       this.reservations = response.body;
     }, error => {
       throwError(error);
-    })
+    });
   }
+
+  hideAlert = (value = false) => {
+    this.showAlert = value;
+  }
+
+  showMessage = () => {
+    this.message = true;
+  }
+
+  delete(value = true, id) {
+    this.chosenReservationId = id;
+    this.hideAlert(value);
+  }
+
+
 
 }

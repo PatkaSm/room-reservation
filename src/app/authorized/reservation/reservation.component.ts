@@ -15,8 +15,12 @@ export class ReservationComponent implements OnInit {
   equipmentList = ['Brak', 'Sterowniki', 'Pracownia fizyczna']
   reservationForm;
   results = [];
+  getHour = [];
   alert = true;
   chosenRoom;
+  resultPicked = false;
+  pickedResult = [];
+  showRooms = false;
   constructor(private reserveService: ReservationService, public datepipe: DatePipe) { }
 
   ngOnInit() {
@@ -32,13 +36,13 @@ export class ReservationComponent implements OnInit {
 
   get reservationType() {
     if (this.reservationForm.get('reservationTypeField').value === 'Jednorazowa') {
-      return { is_cyclic: false, is_every_two_weeks: false, value: 'Jednorazowa'}
+      return { is_cyclic: false, is_every_two_weeks: false, value: 'Jednorazowa' }
     }
     else if (this.reservationForm.get('reservationTypeField').value === 'Cykliczna') {
-      return { is_cyclic: true, is_every_two_weeks: false, value: 'Cykliczna'}
+      return { is_cyclic: true, is_every_two_weeks: false, value: 'Cykliczna' }
     }
     else if (this.reservationForm.get('reservationTypeField').value === 'Cykliczna co dwa tyg') {
-      return { is_cyclic: true, is_every_two_weeks: true, value: 'Cykliczna co dwa tyg.'}
+      return { is_cyclic: true, is_every_two_weeks: true, value: 'Cykliczna co dwa tyg.' }
     }
     return null;
   }
@@ -61,6 +65,8 @@ export class ReservationComponent implements OnInit {
     return this.reservationForm.get('dateField');
   }
   searchForRooms() {
+    this.results = [];
+    this.showRooms = true;
     const data = {
       reservation_date: this.datepipe.transform(this.date.value, 'yyyy-MM-dd'),
       reservation_hour_from: this.hourFrom.value,
@@ -78,16 +84,21 @@ export class ReservationComponent implements OnInit {
   hideAlert = (value = true) => {
     this.alert = value;
   }
-  makeReservation = ({room_id, room}, hour, number_of_seats) => {
+
+  makeReservation = ({ room_id, room, number_of_seats }, hour) => {
     this.chosenRoom = {
-      room_id: room_id,
-      room: room,
+      room_id,
+      room,
       reservation_type: this.reservationType,
       reservation_date: this.datepipe.transform(this.date.value, 'yyyy-MM-dd'),
       reservation_hour: hour,
       equipment: this.equipment.value,
-      number_of_seats: number_of_seats
+      number_of_seats
     }
     this.hideAlert(false);
+  }
+  chooseRoom(result) {
+    this.resultPicked = true;
+    this.pickedResult = result;
   }
 }

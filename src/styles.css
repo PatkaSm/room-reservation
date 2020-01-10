@@ -24,6 +24,11 @@ html {}
     background: rgba(255, 255, 255, .8);
 }
 
+
+.form-button-success:hover{
+    box-shadow: 5px 5px 16px #86DD44 !important;
+}
+
 .form-button:active,
  :focus {
     outline: 0;

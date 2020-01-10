@@ -19,6 +19,8 @@ export class HomeComponent implements OnInit {
   showPasswordField = false;
   user;
   rendered = false;
+  message = 'Pomyślnie zapisano zmiany!';
+  showMessage = false;
   ngOnInit() {
     this.homeService.getDetails().subscribe(response => {
       this.user = response.body;
@@ -34,6 +36,7 @@ export class HomeComponent implements OnInit {
 
   sendFirstName = () => {
     this.editFirstName();
+    this.showMessage = true;
     this.homeService.sendUserData({first_name: this.user.first_name}).subscribe(response => {
       this.ngOnInit();
     }, error => {
@@ -47,6 +50,7 @@ export class HomeComponent implements OnInit {
 
   sendLastName() {
     this.editLastName();
+    this.showMessage = true;
     this.homeService.sendUserData({last_name: this.user.last_name}).subscribe(Response => {
       this.ngOnInit();
     }, error => {
@@ -60,6 +64,7 @@ export class HomeComponent implements OnInit {
 
   sendEmail() {
     this.editEmail();
+    this.showMessage = true;
     this.homeService.sendUserData({email: this.user.email}).subscribe(Response => {
       this.ngOnInit();
     }, error => {
@@ -74,6 +79,7 @@ export class HomeComponent implements OnInit {
 
   sendPhoneNumber() {
     this.editPhoneNumber();
+    this.showMessage = true;
     this.homeService.sendUserData({phone_number: this.user.phone_number}).subscribe(Response => {
       this.ngOnInit();
     }, error => {
@@ -87,6 +93,7 @@ export class HomeComponent implements OnInit {
 
   sendRoomNumber() {
     this.editRoomNumber();
+    this.showMessage = true;
     this.homeService.sendUserData({room_number: this.user.room_number}).subscribe(Response => {
       this.ngOnInit();
     }, error => {
@@ -100,6 +107,7 @@ export class HomeComponent implements OnInit {
 
   sendConsultations() {
     this.editConsultations();
+    this.showMessage = true;
     this.homeService.sendUserData({consultations: this.user.consultations}).subscribe(Response => {
       this.ngOnInit();
     }, error => {
@@ -109,7 +117,9 @@ export class HomeComponent implements OnInit {
 
   showPassword(){
     this.showPasswordField = !this.showPasswordField;
+  }
 
+  savePassword(){
 
   }
 
