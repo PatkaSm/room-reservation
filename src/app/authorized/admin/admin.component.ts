@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { AdminService } from './admin.service';
 import { Router } from '@angular/router';
 import { throwError } from 'rxjs';
@@ -9,7 +9,6 @@ import { throwError } from 'rxjs';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
-
   constructor(private adminService: AdminService, private router: Router) { }
   reservations = []
   showedReservations = [];
@@ -31,16 +30,6 @@ export class AdminComponent implements OnInit {
       throwError(error);
     });
   }
-  hideAlert = (value = false) => {
-    this.showAlert = value;
-  }
-  showMessage = () => {
-    this.message = true;
-  }
-  delete(value = true, id) {
-    this.chosenReservationId = id;
-    this.hideAlert(value);
-  }
   filter(event: any) {
     if (this.filterValue != '') {
       const wholeString = this.filterValue.toUpperCase();
@@ -59,6 +48,13 @@ export class AdminComponent implements OnInit {
       this.showedReservations = this.reservations;
     }
   }
+  delete = (value = true, id) => {
+    this.showAlert = value;
+    this.chosenReservationId = id;
 
+  }
+  hideAlert = () => {
+    this.showAlert = false;
+  }
 
 }

@@ -19,15 +19,18 @@ export class HomeComponent implements OnInit {
   consultationsField = false;
   showPasswordField = false;
   user;
-  rendered = false;
+  detailsRendered = false;
+  seasonRendered = false;
   message = 'Pomyślnie zapisano zmiany!';
   showMessage = false;
   isAdmin = false;
   seasonData;
+  newSeasonForm = false;
+
   ngOnInit() {
     this.homeService.getDetails().subscribe(response => {
       this.user = response.body;
-      this.rendered = true;
+      this.detailsRendered = true;
     }, error => {
       throwError(error);
     });
@@ -35,6 +38,7 @@ export class HomeComponent implements OnInit {
       this.isAdmin = true;
       this.adminService.getSeason().subscribe(response => {
         this.seasonData = response.body;
+        this.seasonRendered = true;
       }, error => {
         throwError(error);
       });
@@ -135,5 +139,11 @@ export class HomeComponent implements OnInit {
   savePassword(){
 
   }
-
+  showNewSeasonForm = (value = true) => {
+    this.newSeasonForm = value;
+  }
+  showSeasonMessage = () => {
+    this.message = 'Pomyślnie dodano rok akademicki!';
+    this.showMessage = true;
+  }
 }

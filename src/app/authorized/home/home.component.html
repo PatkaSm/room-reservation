@@ -1,4 +1,4 @@
-<div class="container" *ngIf="rendered">
+<div class="container" *ngIf="detailsRendered">
     <div class="user-container">
         <div class="header">
             <span>Kliknij na pole jeśli chcesz je edytować.</span>
@@ -94,7 +94,7 @@
         </div>
     </div>
     <div *ngIf="isAdmin">
-        <div class="season">
+        <div class="season" *ngIf="seasonRendered">
             <h3>Rok akademicki</h3>
             <div class="description">
                 <p>Start roku akademickiego: </p>
@@ -111,8 +111,11 @@
                 <p>{{seasonData.winter_semester_end}} </p>
                 <p>{{seasonData.summer_semester_start}} </p>
                 <p>{{seasonData.summer_semester_end}} </p>
-
+            </div>
+            <div>
+                <span class="click" (click)="showNewSeasonForm()">Dodaj nowy rok akademicki</span>
             </div>
         </div>
+        <app-new-season-alert (showSeasonMessage)="showSeasonMessage()" (hideAlert)="showNewSeasonForm(false)" (refresh)="ngOnInit()" class="alert" *ngIf="newSeasonForm"></app-new-season-alert>
     </div>
 </div>

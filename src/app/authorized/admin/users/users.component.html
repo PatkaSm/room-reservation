@@ -17,17 +17,17 @@
                 <div class="table-box">Admin</div>
                 <div class="table-box">Usuń</div>
             </div>
-            <div class="table-row" *ngFor="let user of results">
+            <div class="table-row" *ngFor="let user of showedUsers">
                 <div class="table-box">{{user.first_name}}</div>
                 <div class="table-box">{{user.last_name}}</div>
                 <div class="table-box">{{user.email}}</div>
-                <div class="table-box">{{user.is_admin}}</div>
+                <div class="table-box"><span class="click" (click)="showAdminAlert(true, user.id)">{{user.is_admin}}</span></div>
                 <div class="table-box">
-                    <img src="assets/images/trash.png" (click)="delete(true, reservation.id)" />
+                    <img src="assets/images/trash.png" (click)="showDeleteAlert(true, user.id)" />
                 </div>
             </div>
-
-            <app-delete-alert *ngIf="showAlert" class="deleteAlert" (refresh)="ngOnInit()" (msg)="showMessage()" (hideAlert)="hideAlert()" [chosenReservation]="chosenReservationId"></app-delete-alert>
+            <app-delete-user-alert class="alert" *ngIf="deleteAlert" [chosenUserId]="chosenUserId" (hideAlert)="showDeleteAlert(false)" (refresh)="ngOnInit()"></app-delete-user-alert>
+            <app-set-admin-alert class="alert" *ngIf="adminAlert" [chosenUserId]="chosenUserId" (hideAlert)="showAdminAlert(false)" (refresh)="ngOnInit()"></app-set-admin-alert>
         </div>
     </div>
 </div>

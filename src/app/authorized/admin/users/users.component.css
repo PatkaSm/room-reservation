@@ -97,3 +97,8 @@ input {
     padding: 10px;
     margin-bottom: 15px;
 }
+
+.click-admin:hover {
+    cursor: pointer;
+    color: #DD6344;
+}

@@ -4,7 +4,8 @@
     height: 100vh;
 }
 
-.container input,select{
+.container input,
+select {
     border-radius: 15px;
     background-color: rgba(255, 255, 255, 0.6);
     font-family: 'Quicksand', sans-serif;
@@ -13,41 +14,39 @@
     font-size: 25px;
 }
 
-.title{
+.title {
     float: top;
     font-size: 35px;
     color: #DD6344;
 }
 
-.form{
+.form {
     height: 90%;
     width: 30%;
     float: left;
 }
-.rooms{
+
+.rooms {
     float: right;
     height: 90vh;
     width: 70%;
 }
 
-.form-box{
+.form-box {
     font-size: 25px;
     color: #598790;
     padding-top: 5%;
-
-
 }
 
-data{
+data {
     flex-direction: row !important;
 }
 
-.results{
+.results {
     float: right;
 }
 
-
-.result{
+.result {
     margin-left: 5%;
     width: 200px;
     height: 50px;
@@ -59,42 +58,31 @@ data{
     font-size: 20px;
 }
 
-.hours{
+.hours {
     border: 1px solid #598790;
     color: #598790;
 }
 
-.result-box{
+.result-box {
     float: left;
     padding: 3%;
     overflow-y: auto;
     width: 50%;
     height: 90%;
-
 }
 
-.result-box-hours{
+.result-box-hours {
     float: right;
     padding: 3%;
     width: 50%;
 }
 
-.result-box p{
-color: #598790;
+.result-box p {
+    color: #598790;
 }
 
-.result:hover{
+.result:hover {
     background-color: rgba(255, 255, 255, 1);
     cursor: pointer;
     transform: scale(1.15);
 }
-
-.reservationAlert {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    z-index: 2;
-    transform: translate(-50%, -50%);
-}
-
-

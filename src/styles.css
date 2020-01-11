@@ -10,8 +10,8 @@
 html {}
 
 .form-button {
-    width: 200px;
-    height: 50px;
+    width: 40%;
+    height: 2.5em;
     font-size: 21px;
     padding: 12px 20px;
     margin: 3% 0;
@@ -24,8 +24,7 @@ html {}
     background: rgba(255, 255, 255, .8);
 }
 
-
-.form-button-success:hover{
+.form-button-success:hover {
     box-shadow: 5px 5px 16px #86DD44 !important;
 }
 
@@ -38,4 +37,17 @@ html {}
     border: 1px solid #07070729;
     box-shadow: 5px 5px 16px #DD6344;
     cursor: pointer;
+}
+
+.alert {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+    transform: translate(-50%, -50%);
+}
+
+.click:hover {
+    cursor: pointer;
+    color: #DD6344;
 }

@@ -78,6 +78,7 @@ export class ReservationComponent implements OnInit {
     this.reserveService.getRooms(data).subscribe(response => {
       this.results = response.body;
     }, error => {
+      console.log(error);
       throwError(error);
     });
   }

@@ -15,6 +15,9 @@ export class UsersComponent implements OnInit {
   results = [];
   showedUsers = [];
   filterValue = '';
+  deleteAlert = false;
+  adminAlert = false;
+  chosenUserId;
   ngOnInit() {
     this.adminService.isAdmin().subscribe(response => {
 
@@ -36,7 +39,8 @@ export class UsersComponent implements OnInit {
       for (let i = 0; i < this.results.length; i++) {
         if (this.results[i].first_name.toUpperCase().includes(wholeString)
           || this.results[i].last_name.toString().toUpperCase().includes(wholeString)
-          || this.results[i].email.toUpperCase().includes(wholeString)) {
+          || this.results[i].email.toUpperCase().includes(wholeString) 
+          || this.results[i].is_admin.toString().toUpperCase().includes(wholeString)) {
             this.showedUsers.push(this.results[i]);
         }
       }
@@ -44,6 +48,14 @@ export class UsersComponent implements OnInit {
     else{
       this.showedUsers = this.results;
     }
+  }
+  showDeleteAlert = (value = true, id) => {
+    this.deleteAlert = value;
+    this.chosenUserId = id;
+  }
+  showAdminAlert = (value = true, id) => {
+    this.adminAlert = value;
+    this.chosenUserId = id;
   }
 
 }

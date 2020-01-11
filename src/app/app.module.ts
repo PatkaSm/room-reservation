@@ -29,6 +29,10 @@ import { HomeService } from './authorized/home/home.service';
 import { AdminService } from './authorized/admin/admin.service';
 import { UsersComponent } from './authorized/admin/users/users.component';
 import { UsersService } from './authorized/admin/users/users.service';
+import { DeleteUserAlertComponent } from './authorized/admin/users/delete-user-alert/delete-user-alert.component';
+import { SetAdminAlertComponent } from './authorized/admin/users/set-admin-alert/set-admin-alert.component';
+import { NewSeasonAlertComponent } from './authorized/home/new-season-alert/new-season-alert.component';
+import { NewSeasonService } from './authorized/home/new-season-alert/new-season.service';
 
 @NgModule({
   declarations: [
@@ -44,7 +48,10 @@ import { UsersService } from './authorized/admin/users/users.service';
     AlertComponent,
     DeleteAlertComponent,
     AdminComponent,
-    UsersComponent
+    UsersComponent,
+    DeleteUserAlertComponent,
+    SetAdminAlertComponent,
+    NewSeasonAlertComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +66,7 @@ import { UsersService } from './authorized/admin/users/users.service';
     MatDatepickerModule
   ],
   providers: [DatePipe, RegisterService, LoginService,
-    LoginGuard, AuthorizedService, YourReservationsService, ReservationService, AdminService, HomeService, UsersService,
+    LoginGuard, AuthorizedService, YourReservationsService, ReservationService, AdminService, HomeService, UsersService, NewSeasonService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,

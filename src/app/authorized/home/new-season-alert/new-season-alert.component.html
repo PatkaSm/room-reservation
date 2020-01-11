@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="content">
+        <span>Czy na pewno chcesz usunąć użytkownika? Tej akcji nie można cofnąć!</span>
+        <form [formGroup]="newSeasonForm" (ngSubmit)="beginSeason()" [name]="newSeasonform">
+            <div class="form-box data">
+                <p>Początek roku akademickiego</p>
+                <input formControlName="seasonBeginField" [matDatepicker]="seasonBeginField" class="form-control" />
+                <mat-datepicker-toggle matSuffix [for]="seasonBeginField"></mat-datepicker-toggle>
+                <mat-datepicker #seasonBeginField></mat-datepicker>
+            </div>
+            <div class="form-box data">
+                <p>Koniec roku akademickiego</p>
+                <input formControlName="seasonEndField" [matDatepicker]="seasonEndField" class="form-control" />
+                <mat-datepicker-toggle matSuffix [for]="seasonEndField"></mat-datepicker-toggle>
+                <mat-datepicker #seasonEndField></mat-datepicker>
+            </div>
+            <div class="form-box data">
+                <p>Początek semestru zimowego</p>
+                <input formControlName="winterSemesterStartField" [matDatepicker]="winterSemesterStartField" class="form-control" />
+                <mat-datepicker-toggle matSuffix [for]="winterSemesterStartField"></mat-datepicker-toggle>
+                <mat-datepicker #winterSemesterStartField></mat-datepicker>
+            </div>
+            <div class="form-box data">
+                <p>Koniec semestru zimowego</p>
+                <input formControlName="winterSemesterEndField" [matDatepicker]="winterSemesterEndField" class="form-control" />
+                <mat-datepicker-toggle matSuffix [for]="winterSemesterEndField"></mat-datepicker-toggle>
+                <mat-datepicker #winterSemesterEndField></mat-datepicker>
+            </div>
+            <div class="form-box data">
+                <p>Początek semestru letniego</p>
+                <input formControlName="summerSemesterStartField" [matDatepicker]="summerSemesterStartField" class="form-control" />
+                <mat-datepicker-toggle matSuffix [for]="summerSemesterStartField"></mat-datepicker-toggle>
+                <mat-datepicker #summerSemesterStartField></mat-datepicker>
+            </div>
+            <div class="form-box data">
+                <p>Koniec semestru letniego</p>
+                <input formControlName="summerSemesterEndField" [matDatepicker]="summerSemesterEndField" class="form-control" />
+                <mat-datepicker-toggle matSuffix [for]="summerSemesterEndField"></mat-datepicker-toggle>
+                <mat-datepicker #summerSemesterEndField></mat-datepicker>
+            </div>
+            <div class="summary">
+                <button class="form-button form-button-success" type="submit">Dodaj</button>
+                <button class="form-button" (click)="hideAlert.emit()">Anuluj</button></div>
+        </form>
+    </div>
+</div>

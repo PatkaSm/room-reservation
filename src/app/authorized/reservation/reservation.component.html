@@ -14,7 +14,7 @@
                 <mat-datepicker-toggle matSuffix [for]="dateField"></mat-datepicker-toggle>
                 <mat-datepicker #dateField></mat-datepicker>
             </div>
-            <div class="form-box">    
+            <div class="form-box">
                 <p>Godzina od</p>
                 <select class="form-control" formControlName="hourFromField">
                     <option *ngFor="let hour of hours"> {{hour}}</option>
@@ -51,12 +51,12 @@
             </div>
         </div>
         <div class="result-box-hours" *ngIf="resultPicked">
-                        <div class="results" *ngFor="let hour of pickedResult.hours" >
+            <div class="results" *ngFor="let hour of pickedResult.hours">
                 <div class="result hours" (click)="makeReservation(pickedResult, hour)">{{hour}}</div>
             </div>
         </div>
     </div>
 
-    
-    <app-alert *ngIf="!alert" class="reservationAlert" (hideAlert)="hideAlert(true)" [chosenRoom]="chosenRoom"></app-alert>
+
+    <app-alert *ngIf="!alert" class="alert" (hideAlert)="hideAlert(true)" [chosenRoom]="chosenRoom"></app-alert>
 </div>
