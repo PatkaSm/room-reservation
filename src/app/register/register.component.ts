@@ -25,7 +25,6 @@ export class RegisterComponent implements OnInit {
     this.registerForm.addControl('email', new FormControl('', [Validators.required, Validators.email]));
     this.registerForm.addControl('password', new FormControl('', [Validators.required, Validators.pattern(this.regExp)])),
     this.registerForm.addControl('repeatPassword', new FormControl('', [Validators.required, this.validateAreEqual.bind(this)]));
-    this.registerForm.addControl('role', new FormControl('', []));
   }
 
   private validateAreEqual(fieldControl: FormControl) {

@@ -8,22 +8,18 @@
         <form [formGroup]="registerForm" (ngSubmit)="submitRegister()" [name]="registerForm">
             <div class="form-option">
                 <input type="email" name="email" formControlName="email" placeholder="Email">
-                <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+                <div *ngIf="email.invalid && (email.dirty || email.touched)">
                     <div *ngIf="email.errors.required">
-                        <ul>
-                            <li>E-mail jest wymagany.</li>
-                        </ul>
+                        E-mail jest wymagany.
                     </div>
                     <div *ngIf="email.errors.email">
-                        <ul>
-                            <li>Wprowadź poprawny adres e-mail</li>
-                        </ul>
+                        Wprowadź poprawny adres e-mail
                     </div>
                 </div>
             </div>
             <div class="form-option">
                 <input type="password" name="password" formControlName="password" placeholder="Hasło">
-                <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+                <div *ngIf="password.invalid && (password.dirty || password.touched)">
 
                     <div *ngIf="password.errors.required">
                         <ul>
@@ -52,7 +48,7 @@
             </div>
             <div class="form-option">
                 <input type="password" name="password" formControlName="repeatPassword" placeholder="Powtórz hasło">
-                <div *ngIf="repeatPassword.invalid && (repeatPassword.dirty || repeatPassword.touched)" class="alert alert-danger">
+                <div *ngIf="repeatPassword.invalid && (repeatPassword.dirty || repeatPassword.touched)">
                     <div *ngIf="repeatPassword.errors.required">
                         Musisz ponownie wpisać hasło.
                     </div>
@@ -63,11 +59,20 @@
             </div>
             <div class="form-option">
                 <input type="text" name="name" title="Minimum 4 znaki" formControlName="firstName" placeholder="Imię">
-                <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="alert alert-danger"></div>
+                <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)">
+                    <div *ngIf="firstName.errors.required">
+                        Imię jest wymagane
+                    </div>
+                </div>
 
             </div>
             <div class="form-option">
                 <input type="text" name="lastname" placeholder="Nazwisko" formControlName="lastName">
+                <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
+                    <div *ngIf="lastName.errors.required">
+                        Nazwisko jest wymagane
+                    </div>
+                </div>
             </div>
 
             <div class="form-option">

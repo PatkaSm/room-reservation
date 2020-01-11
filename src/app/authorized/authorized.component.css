@@ -109,3 +109,5 @@ a:hover {
 .icon {
     margin-right: 15px;
 }
+
+@media only screen and (max-width: 769px) {}

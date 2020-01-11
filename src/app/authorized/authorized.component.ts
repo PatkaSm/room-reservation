@@ -6,7 +6,7 @@ import { AdminService } from './admin/admin.service';
 
 @Component({
   selector: 'app-authorized',
-  templateUrl: './authorized.component.html',
+  templateUrl:'./authorized.component.html',
   styleUrls: ['./authorized.component.css']
 })
 export class AuthorizedComponent implements OnInit {

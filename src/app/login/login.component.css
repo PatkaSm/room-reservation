@@ -93,3 +93,17 @@ a {
 form ul li {
     list-style-type: none;
 }
+
+@media only screen and (max-width: 769px) {
+    .container {
+        background-image: url(src/assets/images/mobile-background.png);
+        background-size: cover;
+    }
+    .form-div {
+        height: 75vh;
+        width: 80%;
+    }
+    .form-button {
+        width: 55%;
+    }
+}
