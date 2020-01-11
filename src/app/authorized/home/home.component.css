@@ -1,9 +1,9 @@
 .container {
     display: flex;
     flex-direction: column;
-    padding: 100px 200px 100px 200px;
+    padding: 5% 10% 0 10%;
     width: 70vw;
-    font-size: 30px;
+    font-size: 3vh;
     color: #598790;
     overflow: auto;
 }
@@ -13,8 +13,8 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: left;
-    font-size: 25px;
-    margin-bottom: 10%;
+    font-size: 1hv;
+    margin-bottom: 5%;
     color: #DD6344;
 }
 
@@ -34,12 +34,12 @@
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
-    margin-bottom: 3%;
+ 
 }
 
 .content span:first-child {
-    font-weight: bold;
-    margin-right: 15px;
+    color: #598790;
+
 }
 
 .content span {
@@ -71,7 +71,7 @@ img:hover {
 }
 
 input {
-    font-size: 30px;
+    font-size: 3vh;
     border-radius: 25px;
     border: none;
     padding: 5px;
@@ -84,7 +84,7 @@ input {
 }
 
 textarea {
-    font-size: 30px;
+    font-size: 3vh;
     height: 30vh;
     width: 50vh;
     align-content: flex-start;
@@ -99,14 +99,13 @@ textarea {
     flex-direction: column;
 }
 
-.passwd>.repeat {
-    display: flex;
-    flex-direction: row;
-}
-
 .passwd input {
     margin-bottom: 15px;
+    color: #598790;
+    background-color: rgb(0, 0, 0, 0.1);
+
 }
+
 
 .season {
     margin-top: 20px;
@@ -116,7 +115,7 @@ textarea {
 }
 
 .season>.description {
-    font-weight: bold;
+
     grid-column: 1;
 }
 
@@ -152,4 +151,24 @@ textarea {
 
 .description>div>p:nth-child(6) {
     grid-row: 6;
+}
+
+.season > .header{
+    font-size: 3vh;
+}
+
+.new-season-box{
+    font-weight: bold;
+    margin-top: 2vh;
+}
+
+.submit-button{
+    border: none;
+    background-color: transparent;
+}
+
+.changePasswdAlert{
+    font-size: 1.5vh;
+    width: 50vw;
+    color: darkslategray;
 }

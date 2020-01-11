@@ -44,12 +44,12 @@
                 src="assets/images/save.png" (click)="sendConsultations()" /></span>
             </div>
 
-            <p (click)=showPassword()>Zmiana hasła</p>
+            <p class="new-season-box click" (click)=showPassword()>Zmiana hasła</p>
             <div *ngIf="showPasswordField" class="passwd">
-                <form [formGroup]="changePasswordForm" [name]="registerForm" (ngSubmit)="submitPassword()">
+                <form [formGroup]="changePasswordForm" [name]="changePasswordForm" (ngSubmit)="submitPassword()">
                     <div class="form-option">
                         <input type="password" name="password" formControlName="password" placeholder="Wpisz nowe hasło">
-                        <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+                        <div *ngIf="password.invalid && (password.dirty || password.touched)" class="changePasswdAlert">
 
                             <div *ngIf="password.errors.required">
                                 <ul>
@@ -71,15 +71,15 @@
                                     <li>Przynajmniej 8 znaków</li>
                                     <li>Małe litery</li>
                                     <li>Wielkie litery</li>
-                                    <li>Liczby lub znaki specjalne</li>
+                                    <li>Liczby i znaki specjalne</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                     <div class="form-option">
-                        <span><input type="password" name="password" formControlName="repeatPassword" placeholder="Powtórz nowe hasło"><img
-                        src="assets/images/save.png" (click)="savePassword()" /></span>
-                        <div *ngIf="repeatPassword.invalid && (repeatPassword.dirty || repeatPassword.touched)" class="alert alert-danger">
+                        <span><input type="password" name="password" formControlName="repeatPassword" placeholder="Powtórz nowe hasło">
+                             <button class="submit-button" type="submit" [disabled]="!changePasswordForm.valid"><img src="assets/images/save.png"/></button ></span>
+                        <div *ngIf="repeatPassword.invalid && (repeatPassword.dirty || repeatPassword.touched)" class="changePasswdAlert">
                             <div *ngIf="repeatPassword.errors.required">
                                 Musisz ponownie wpisać hasło.
                             </div>
@@ -95,7 +95,9 @@
     </div>
     <div *ngIf="isAdmin">
         <div class="season" *ngIf="seasonRendered">
-            <h3>Rok akademicki</h3>
+            <div class="header">
+                <p>Rok akademicki</p>
+            </div>
             <div class="description">
                 <p>Start roku akademickiego: </p>
                 <p>Koniec roku akademickiego: </p>
@@ -112,7 +114,7 @@
                 <p>{{seasonData.summer_semester_start}} </p>
                 <p>{{seasonData.summer_semester_end}} </p>
             </div>
-            <div>
+            <div class="new-season-box">
                 <span class="click" (click)="showNewSeasonForm()">Dodaj nowy rok akademicki</span>
             </div>
         </div>

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from './home.service';
-import { throwError } from 'rxjs';
+import { throwError} from 'rxjs';
 import { AdminService } from '../admin/admin.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { default as configData } from 'src/app/config.js';
 
 
 @Component({
@@ -26,6 +28,8 @@ export class HomeComponent implements OnInit {
   isAdmin = false;
   seasonData;
   newSeasonForm = false;
+  changePasswordForm;
+  regExp = configData.passwordRegEx;
 
   ngOnInit() {
     this.homeService.getDetails().subscribe(response => {
@@ -45,6 +49,24 @@ export class HomeComponent implements OnInit {
     }, error => {
       this.isAdmin = false;
     });
+
+    this.changePasswordForm = new FormGroup({});
+    this.changePasswordForm.addControl('password', new FormControl('', [Validators.required, Validators.pattern(this.regExp), 
+      Validators.minLength(8)]));
+    this.changePasswordForm.addControl('repeatPassword', new FormControl('',
+      [Validators.required, this.validateAreEqual.bind(this)]));
+  }
+
+  private validateAreEqual(fieldControl: FormControl) {
+    return fieldControl.value === this.changePasswordForm.controls['password'].value ? null : {
+      NotEqual: true
+    };
+  }
+  get password() {
+    return this.changePasswordForm.get('password');
+  }
+  get repeatPassword() {
+    return this.changePasswordForm.get('repeatPassword');
   }
 
   editFirstName() {
@@ -136,14 +158,21 @@ export class HomeComponent implements OnInit {
     this.showPasswordField = !this.showPasswordField;
   }
 
-  savePassword(){
-
-  }
   showNewSeasonForm = (value = true) => {
     this.newSeasonForm = value;
   }
   showSeasonMessage = () => {
     this.message = 'Pomyślnie dodano rok akademicki!';
     this.showMessage = true;
+  }
+
+  submitPassword = () => {
+    this.showMessage = true;
+    this.homeService.sendUserData({ password: this.password.value }).subscribe(response => {
+      this.ngOnInit();
+      console.log(response);
+    }, error => {
+      console.log(error);
+    })
   }
 }
