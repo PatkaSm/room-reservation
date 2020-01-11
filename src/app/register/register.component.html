@@ -36,13 +36,8 @@
 
                     </div>
                     <div *ngIf="password.errors.pattern">
-                        Hasło musi mieć:
-                        <ul>
-                            <li>Przynajmniej 8 znaków</li>
-                            <li>Małe litery</li>
-                            <li>Wielkie litery</li>
-                            <li>Liczby lub znaki specjalne</li>
-                        </ul>
+                        Hasło musi mieć: Przynajmniej 8 znaków, wielką literę, liczby lub znaki specjalne.
+
                     </div>
                 </div>
             </div>
@@ -80,16 +75,18 @@
                     Zarejestruj
                 </button>
             </div>
-            <div class="form-success-msg" *ngIf="success">
-                <h3><strong>Zarejestrowano pomyślnie!</strong></h3>
-                <h3> <a routerLink="/login">Kliknij tutaj aby się zalogować! </a></h3>
-            </div>
-
-            <div class="form-error-msg" *ngIf="failed">
-                <h3><strong>Taki użytkownik już istnieje!</strong></h3>
-            </div>
             <div>
-                <span class="click" [routerLink]="['/']">Strona główna</span>
+                <div class="form-success-msg" *ngIf="success">
+                    <h3><strong>Zarejestrowano pomyślnie!</strong></h3>
+                    <h3> <a routerLink="/login">Kliknij tutaj aby się zalogować! </a></h3>
+                </div>
+
+                <div class="form-error-msg" *ngIf="failed">
+                    <h3><strong>Taki użytkownik już istnieje!</strong></h3>
+                </div>
+                <div>
+                    <span class="click" [routerLink]="['/']">Strona główna</span>
+                </div>
             </div>
         </form>
     </div>

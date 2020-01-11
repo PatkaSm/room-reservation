@@ -3,6 +3,10 @@
     font-style: light;
 }
 
+.mobile-nav {
+    display: none;
+}
+
 .container {
     background-image: url(src/assets/images/tlo2.png);
     background-color: beige;
@@ -17,11 +21,7 @@
     overflow: auto;
 }
 
-nav {
-    position: sticky;
-    top: 0;
-    left: 0;
-    display: flex;
+.desktop-nav {
     flex-direction: column;
     justify-items: left;
     justify-content: space-between;
@@ -31,7 +31,7 @@ nav {
     border-right: 1px solid #598790;
 }
 
-nav>div {
+.desktop-nav>div {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -39,7 +39,7 @@ nav>div {
     padding-bottom: 50px;
 }
 
-nav>.user-container {
+.desktop-nav>.user-container {
     display: flex;
     flex-direction: column;
     padding: 15px;
@@ -64,11 +64,11 @@ a:hover {
 
 .home-icon {
     background-image: url(src/assets/images/pngfuel.com.png);
-    height: 35px;
-    width: 35px;
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
+    height: 35px;
+    width: 35px;
 }
 
 .reservation-icon {
@@ -109,5 +109,3 @@ a:hover {
 .icon {
     margin-right: 15px;
 }
-
-@media only screen and (max-width: 769px) {}
