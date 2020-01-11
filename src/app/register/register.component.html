@@ -50,6 +50,7 @@
                     <div *ngIf="!repeatPassword.validateAreEqual">
                         Hasła nie są takie same.
                     </div>
+
                 </div>
             </div>
             <div class="form-option">
@@ -57,6 +58,9 @@
                 <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)">
                     <div *ngIf="firstName.errors.required">
                         Imię jest wymagane
+                    </div>
+                    <div *ngIf="firstName.errors.minlength">
+                        Wymagane są minimum 4 znaki.
                     </div>
                 </div>
 
@@ -66,6 +70,9 @@
                 <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
                     <div *ngIf="lastName.errors.required">
                         Nazwisko jest wymagane
+                    </div>
+                    <div *ngIf="lastName.errors.minlength">
+                        Wymagane minimum są 4 znaki.
                     </div>
                 </div>
             </div>
@@ -85,7 +92,7 @@
                     <h3><strong>Taki użytkownik już istnieje!</strong></h3>
                 </div>
                 <div>
-                    <span class="click" [routerLink]="['/']">Strona główna</span>
+                    <span class="click" *ngIf="!success" [routerLink]="['/']">Strona główna</span>
                 </div>
             </div>
         </form>

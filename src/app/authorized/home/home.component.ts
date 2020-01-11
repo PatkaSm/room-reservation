@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from './home.service';
-import { throwError} from 'rxjs';
+import { throwError } from 'rxjs';
 import { AdminService } from '../admin/admin.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { default as configData } from 'src/app/config.js';
@@ -34,6 +34,16 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.homeService.getDetails().subscribe(response => {
       this.user = response.body;
+      const { consultations, phone_number, room_number } = this.user;
+      if (consultations === null) {
+        this.user.consultations = 'Uzupełnij dane o konsultacjach!!';
+      }
+      if(phone_number === null){
+        this.user.phone_number = 'Uzupełnij numer telefonu!';
+      }
+      if(room_number === null){
+        this.user.room_number = 'Uzupełnij numer pokoju!'
+      }
       this.detailsRendered = true;
     }, error => {
       throwError(error);
@@ -51,8 +61,8 @@ export class HomeComponent implements OnInit {
     });
 
     this.changePasswordForm = new FormGroup({});
-    this.changePasswordForm.addControl('password', new FormControl('', [Validators.required, Validators.pattern(this.regExp), 
-      Validators.minLength(8)]));
+    this.changePasswordForm.addControl('password', new FormControl('', [Validators.required, Validators.pattern(this.regExp),
+    Validators.minLength(8)]));
     this.changePasswordForm.addControl('repeatPassword', new FormControl('',
       [Validators.required, this.validateAreEqual.bind(this)]));
   }
@@ -76,10 +86,10 @@ export class HomeComponent implements OnInit {
   sendFirstName = () => {
     this.editFirstName();
     this.showMessage = true;
-    this.homeService.sendUserData({first_name: this.user.first_name}).subscribe(response => {
+    this.homeService.sendUserData({ first_name: this.user.first_name }).subscribe(response => {
       this.ngOnInit();
     }, error => {
-        throwError(error);
+      throwError(error);
     });
   }
 
@@ -90,7 +100,7 @@ export class HomeComponent implements OnInit {
   sendLastName() {
     this.editLastName();
     this.showMessage = true;
-    this.homeService.sendUserData({last_name: this.user.last_name}).subscribe(Response => {
+    this.homeService.sendUserData({ last_name: this.user.last_name }).subscribe(Response => {
       this.ngOnInit();
     }, error => {
       throwError(error);
@@ -104,7 +114,7 @@ export class HomeComponent implements OnInit {
   sendEmail() {
     this.editEmail();
     this.showMessage = true;
-    this.homeService.sendUserData({email: this.user.email}).subscribe(Response => {
+    this.homeService.sendUserData({ email: this.user.email }).subscribe(Response => {
       this.ngOnInit();
     }, error => {
       throwError(error);
@@ -119,7 +129,7 @@ export class HomeComponent implements OnInit {
   sendPhoneNumber() {
     this.editPhoneNumber();
     this.showMessage = true;
-    this.homeService.sendUserData({phone_number: this.user.phone_number}).subscribe(Response => {
+    this.homeService.sendUserData({ phone_number: this.user.phone_number }).subscribe(Response => {
       this.ngOnInit();
     }, error => {
       throwError(error);
@@ -133,7 +143,7 @@ export class HomeComponent implements OnInit {
   sendRoomNumber() {
     this.editRoomNumber();
     this.showMessage = true;
-    this.homeService.sendUserData({room_number: this.user.room_number}).subscribe(Response => {
+    this.homeService.sendUserData({ room_number: this.user.room_number }).subscribe(Response => {
       this.ngOnInit();
     }, error => {
       throwError(error);
@@ -147,14 +157,14 @@ export class HomeComponent implements OnInit {
   sendConsultations() {
     this.editConsultations();
     this.showMessage = true;
-    this.homeService.sendUserData({consultations: this.user.consultations}).subscribe(Response => {
+    this.homeService.sendUserData({ consultations: this.user.consultations }).subscribe(Response => {
       this.ngOnInit();
     }, error => {
       throwError(error);
     });
   }
 
-  showPassword(){
+  showPassword() {
     this.showPasswordField = !this.showPasswordField;
   }
 

@@ -6,23 +6,44 @@
                 <a>Wyloguj</a>
             </div>
         </div>
-        <div>
-            <div class="home-icon icon"></div>
-            <a [routerLink]="['./feed']" class="home-page">Strona główna </a>
+        <div class="nav-option">
+            <span [routerLink]="['./feed']" class="click">
+               <img src="/assets/images/pngfuel.com.png"/>
+            <a  class="home-page">Strona główna </a>
+        </span>
         </div>
-        <div>
-            <div class="reservation-icon icon"></div>
-            <a [routerLink]="['./reserve']" class="reservation">Zarezerwuj salę</a>
+        <div class="nav-option">
+            <span [routerLink]="['./reserve']" class="click">
+                <img src="/assets/images/time.png"/>
+                <a  class="reservation">Zarezerwuj salę</a>
+        </span>
         </div>
-        <div>
-            <div class="reservations-icon icon"></div>
-            <a *ngIf="!isAdmin" [routerLink]="['./your-reservations']" class="reservations">Twoje rezerwacje</a>
-            <a *ngIf="isAdmin" [routerLink]="['./reservations-admin']" class="reservations">Rezerwacje</a>
+
+        <div class="nav-option">
+
+            <span *ngIf="!isAdmin" [routerLink]="['./your-reservations']" class="click">
+                <img src="/assets/images/toppng.com-paper-icon-note-icon-black-474x627.png"/>
+                <a   class="reservations">Twoje rezerwacje</a>
+            </span>
+            <span *ngIf="isAdmin" [routerLink]="['./reservations-admin']" class="click">
+                <img src="/assets/images/toppng.com-paper-icon-note-icon-black-474x627.png"/>
+                <a class="reservations">Rezerwacje</a>
+            </span>
+
+
+
         </div>
-        <div>
-            <div class="contact-icon icon"></div>
-            <a *ngIf="!isAdmin" [routerLink]="['./contact']" class="contact">Kontakt</a>
-            <a *ngIf="isAdmin" [routerLink]="['./users-admin']" class="contact">Użytkownicy</a>
+        <div class="nav-option">
+            <span *ngIf="!isAdmin" [routerLink]="['./contact']" class="click">            
+                <img src="/assets/images/PikPng.com_message-png_2023393.png"/>
+                <a   class="contact">Kontakt</a>
+            </span>
+            <span *ngIf="isAdmin" [routerLink]="['./users-admin']" class="click">            
+                <img src="/assets/images/users-icon.png"/>
+                <a   class="contact">Użytkownicy</a>
+            </span>
+
+
         </div>
 
 

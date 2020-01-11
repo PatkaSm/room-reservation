@@ -6,8 +6,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    font-size: 25px;
-    padding: 15px;
+    font-size: 3vh;
     border-radius: 15px;
     color: #DD6344;
 }
@@ -45,4 +44,23 @@
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+}
+
+@media only screen and (max-width:1000px) {
+    .container {
+        width: 80vw;
+        height: 60vh;
+    }
+    .header>h1 {
+        width: 50vw;
+        font-size: 4vh;
+        text-align: center;
+    }
+    .summary {
+        width: 100%;
+    }
+    .form-button {
+        font-size: 2.5vh;
+        width: 45%;
+    }
 }

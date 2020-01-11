@@ -3,10 +3,6 @@
     font-style: light;
 }
 
-.mobile-nav {
-    display: none;
-}
-
 .container {
     background-image: url(src/assets/images/tlo2.png);
     background-color: beige;
@@ -22,21 +18,29 @@
 }
 
 .desktop-nav {
+    position: sticky;
+    top: 0;
+    left: 0;
     flex-direction: column;
     justify-items: left;
     justify-content: space-between;
     height: 100vh;
-    width: 20%;
+    width: 15%;
     background-color: #FFFFFF7F;
     border-right: 1px solid #598790;
 }
 
-.desktop-nav>div {
+.nav-option {
+    padding: 35px 15px 50px 35px;
+}
+
+.desktop-nav>div>span {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    margin: 35px 15px 50px 35px;
-    padding-bottom: 50px;
+}
+
+.form-button {
+    width: 100%!important;
 }
 
 .desktop-nav>.user-container {
@@ -46,12 +50,13 @@
     margin: 0;
     border-bottom: 1px solid #598790;
     background-color: #FFFFFF99;
+    align-items: center;
 }
 
 a {
     text-decoration: none;
     color: #598790;
-    font-size: 30px;
+    font-size: 2.5vh;
 }
 
 a:hover {
@@ -59,47 +64,17 @@ a:hover {
 }
 
 .greeting {
-    font-size: 35px;
+    font-size: 3vh;
 }
 
-.home-icon {
-    background-image: url(src/assets/images/pngfuel.com.png);
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-    height: 35px;
+img {
     width: 35px;
-}
-
-.reservation-icon {
-    background-image: url(src/assets/images/time.png);
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
     height: 35px;
-    width: 35px;
-}
-
-.reservations-icon {
-    background-image: url(src/assets/images/toppng.com-paper-icon-note-icon-black-474x627.png);
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-    height: 35px;
-    width: 35px;
-}
-
-.contact-icon {
-    background-image: url(src/assets/images/PikPng.com_message-png_2023393.png);
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-    height: 35px;
-    width: 35px;
+    margin-right: .5vw;
 }
 
 .logout-button>a {
-    font-size: 16px;
+    font-size: 1.5vh;
 }
 
 .logout-button:hover {
@@ -108,4 +83,23 @@ a:hover {
 
 .icon {
     margin-right: 15px;
+}
+
+@media only screen and (max-width: 1100px) {
+    .desktop-nav {
+        width: 20%;
+    }
+    .desktop-nav>div>span {
+        display: flex;
+        flex-direction: column;
+    }
+    .nav-option {
+        padding: 35px 30% 50px 30%;
+    }
+    .nav-option>span>a {
+        display: none!important;
+    }
+    .nav-option>span>img {
+        align-self: center;
+    }
 }

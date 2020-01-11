@@ -40,8 +40,9 @@
                 <p>Liczba komputerów</p>
                 <input type="number" min="0" class="form-control" formControlName="numberOfComputers" />
             </div>
-
-            <button class="form-button" (click)="searchForRooms()">Wyszukaj</button>
+            <div class="form-box">
+                <button class="form-button" (click)="searchForRooms()">Wyszukaj</button>
+            </div>
         </form>
     </div>
     <div class="rooms" *ngIf="showRooms">

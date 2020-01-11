@@ -8,38 +8,38 @@
         </div>
         <div class="content">
             <div>
-                <span> Imie: </span> <span *ngIf="!firstNameField" (click)="editFirstName()">{{user.first_name}}</span>
+                <span> Imie: </span> <span *ngIf="!firstNameField" (click)="editFirstName()" class="click">{{user.first_name}}</span>
                 <span *ngIf="firstNameField" class="showed"><input class="profile-input" [(ngModel)]="user.first_name" type="text"> 
                 <img src="assets/images/save.png" (click)="sendFirstName()" /> </span>
             </div>
 
             <div>
-                <span> Nazwisko: </span> <span *ngIf="!lastNameField" (click)="editLastName()">{{user.last_name}}</span>
+                <span> Nazwisko: </span> <span *ngIf="!lastNameField" (click)="editLastName()" class="click">{{user.last_name}}</span>
                 <span *ngIf="lastNameField" class="showed"><input class="profile-input" [(ngModel)]="user.last_name" type="text">
                 <img src="assets/images/save.png" (click)="sendLastName()" /></span>
             </div>
 
 
             <div>
-                <span>Email:</span> <span *ngIf="!emailField" (click)="editEmail()">{{user.email}}</span>
+                <span>Email:</span> <span *ngIf="!emailField" (click)="editEmail()" class="click">{{user.email}}</span>
                 <span *ngIf="emailField" class="showed"><input class="profile-input" [(ngModel)]="user.email" type="text"><img
                 src="assets/images/save.png" (click)="sendEmail()" /></span>
             </div>
 
             <div>
-                <span>Nr pokoju:</span> <span *ngIf="!roomNumberField" (click)="editRoomNumber()">{{user.room_number}}</span>
+                <span>Nr pokoju:</span> <span *ngIf="!roomNumberField" (click)="editRoomNumber()" class="click">{{user.room_number}}</span>
                 <span *ngIf="roomNumberField" class="showed"><input class="profile-input" [(ngModel)]="user.room_number" type="text"><img
                 src="assets/images/save.png" (click)="sendRoomNumber()" /></span>
             </div>
 
             <div>
-                <span>Nr telefonu:</span> <span *ngIf="!phoneNumberField" (click)="editPhoneNumber()"> {{user.phone_number}}</span>
+                <span>Nr telefonu:</span> <span *ngIf="!phoneNumberField" (click)="editPhoneNumber()" class="click"> {{user.phone_number}}</span>
                 <span *ngIf="phoneNumberField" class="showed"><input class="profile-input" [(ngModel)]="user.phone_number" type="text"><img
                 src="assets/images/save.png" (click)="sendPhoneNumber()" /></span>
             </div>
 
             <div>
-                <span>Konsultacje:</span> <span *ngIf="!consultationsField" (click)="editConsultations()">{{user.consultations}}</span>
+                <span>Konsultacje:</span> <span *ngIf="!consultationsField" (click)="editConsultations()" class="click">{{user.consultations}}</span>
                 <span *ngIf="consultationsField" class="showed"><textarea class="profile-input consultations" [(ngModel)]="user.consultations" type="text"></textarea><img
                 src="assets/images/save.png" (click)="sendConsultations()" /></span>
             </div>
