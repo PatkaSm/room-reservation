@@ -33,6 +33,7 @@ import { DeleteUserAlertComponent } from './authorized/admin/users/delete-user-a
 import { SetAdminAlertComponent } from './authorized/admin/users/set-admin-alert/set-admin-alert.component';
 import { NewSeasonAlertComponent } from './authorized/home/new-season-alert/new-season-alert.component';
 import { NewSeasonService } from './authorized/home/new-season-alert/new-season.service';
+import { SetActiveAlertComponent } from './authorized/admin/users/set-active-alert/set-active-alert.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { NewSeasonService } from './authorized/home/new-season-alert/new-season.
     UsersComponent,
     DeleteUserAlertComponent,
     SetAdminAlertComponent,
-    NewSeasonAlertComponent
+    NewSeasonAlertComponent,
+    SetActiveAlertComponent
   ],
   imports: [
     BrowserModule,

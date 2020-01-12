@@ -54,13 +54,10 @@
                 </div>
             </div>
             <div class="form-option">
-                <input type="text" name="name" title="Minimum 4 znaki" formControlName="firstName" placeholder="Imię">
+                <input type="text" name="name" formControlName="firstName" placeholder="Imię">
                 <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)">
                     <div *ngIf="firstName.errors.required">
                         Imię jest wymagane
-                    </div>
-                    <div *ngIf="firstName.errors.minlength">
-                        Wymagane są minimum 4 znaki.
                     </div>
                 </div>
 
@@ -70,9 +67,6 @@
                 <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
                     <div *ngIf="lastName.errors.required">
                         Nazwisko jest wymagane
-                    </div>
-                    <div *ngIf="lastName.errors.minlength">
-                        Wymagane minimum są 4 znaki.
                     </div>
                 </div>
             </div>
@@ -85,7 +79,7 @@
             <div>
                 <div class="form-success-msg" *ngIf="success">
                     <h3><strong>Zarejestrowano pomyślnie!</strong></h3>
-                    <h3> <a routerLink="/login">Kliknij tutaj aby się zalogować! </a></h3>
+                    <h3> <a routerLink="/">Po akceptacji administratora, będzie możliwe logowanie</a></h3>
                 </div>
 
                 <div class="form-error-msg" *ngIf="failed">

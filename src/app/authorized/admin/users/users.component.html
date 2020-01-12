@@ -14,6 +14,7 @@
                 <div class="table-box">Imię</div>
                 <div class="table-box">Nazwisko</div>
                 <div class="table-box">Mail</div>
+                <div class="table-box">Aktywny</div>
                 <div class="table-box">Admin</div>
                 <div class="table-box">Usuń</div>
             </div>
@@ -21,6 +22,7 @@
                 <div class="table-box">{{user.first_name}}</div>
                 <div class="table-box">{{user.last_name}}</div>
                 <div class="table-box">{{user.email}}</div>
+                <div class="table-box"><span class="click" (click)="showActiveAlert(true, user.id)">{{user.is_active}}</span></div>
                 <div class="table-box"><span class="click" (click)="showAdminAlert(true, user.id)">{{user.is_admin}}</span></div>
                 <div class="table-box">
                     <img src="assets/images/trash.png" (click)="showDeleteAlert(true, user.id)" />
@@ -28,6 +30,6 @@
             </div>
             <app-delete-user-alert class="alert" *ngIf="deleteAlert" [chosenUserId]="chosenUserId" (hideAlert)="showDeleteAlert(false)" (refresh)="ngOnInit()"></app-delete-user-alert>
             <app-set-admin-alert class="alert" *ngIf="adminAlert" [chosenUserId]="chosenUserId" (hideAlert)="showAdminAlert(false)" (refresh)="ngOnInit()"></app-set-admin-alert>
+            <app-set-active-alert class="alert" *ngIf="activeAlert" [chosenUserId]="chosenUserId" (hideAlert)="showActiveAlert(false)" (refresh)="ngOnInit()"></app-set-active-alert>
         </div>
     </div>
-</div>

@@ -17,6 +17,7 @@ export class UsersComponent implements OnInit {
   filterValue = '';
   deleteAlert = false;
   adminAlert = false;
+  activeAlert = false;
   chosenUserId;
   ngOnInit() {
     this.adminService.isAdmin().subscribe(response => {
@@ -55,6 +56,10 @@ export class UsersComponent implements OnInit {
   }
   showAdminAlert = (value = true, id) => {
     this.adminAlert = value;
+    this.chosenUserId = id;
+  }
+  showActiveAlert = (value = true, id) => {
+    this.activeAlert = value;
     this.chosenUserId = id;
   }
 

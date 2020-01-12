@@ -19,6 +19,10 @@
     padding-top: 3%;
 }
 
+.message>h5 {
+    font-size: 3vh;
+}
+
 .table {
     width: 100%;
 }

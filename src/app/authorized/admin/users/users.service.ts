@@ -10,12 +10,13 @@ export class UsersService {
   constructor(private http: HttpClient) { }
   getUsersUrl = configData.host + 'users/get_users/';
   setAdminUrl = configData.host + 'users/set_admin/';
+  setActiveUrl = configData.host + 'users/set_active/';
   getUsers: any = () => this.http.post(this.getUsersUrl, {}, { observe: 'response' });
   deleteUser: any = (id: number) => {
     const url = configData.host + `users/${id}/delete/`;
     return this.http.post(url,{}, { observe: 'response' });
   }
   setAdmin: any = (id: number) => this.http.post(this.setAdminUrl, {id: id}, { observe: 'response' });
-
+  setActive: any = (id: number) => this.http.post(this.setActiveUrl, {id: id}, { observe: 'response' });
 
 }
