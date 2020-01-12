@@ -118,6 +118,17 @@
                 <span class="click" (click)="showNewSeasonForm()">Dodaj nowy rok akademicki</span>
             </div>
         </div>
+        <div class="log-container">
+            <div class="log-header">Dziennik zdarzeń</div>
+            <div class="log-content">
+                <form [formGroup]="logForm" (ngSubmit)="getLogs()" [name]="logForm">
+                    <input formControlName="dateField" [matDatepicker]="dateField" class="form-control" />
+                    <mat-datepicker-toggle matSuffix [for]="dateField"></mat-datepicker-toggle>
+                    <mat-datepicker #dateField></mat-datepicker>
+                    <button type="submit" class="form-button">Pobierz</button>
+                </form>
+            </div>
+        </div>
         <app-new-season-alert (showSeasonMessage)="showSeasonMessage()" (hideAlert)="showNewSeasonForm(false)" (refresh)="ngOnInit()" class="alert" *ngIf="newSeasonForm"></app-new-season-alert>
     </div>
 </div>

@@ -4,6 +4,7 @@ import { throwError } from 'rxjs';
 import { AdminService } from '../admin/admin.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { default as configData } from 'src/app/config.js';
+import { DatePipe } from '@angular/common';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { default as configData } from 'src/app/config.js';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  constructor(private homeService: HomeService, private adminService: AdminService) { }
+  constructor(private homeService: HomeService, private adminService: AdminService, private datepipe: DatePipe) { }
   firstNameField = false;
   lastNameField = false;
   emailField = false;
@@ -30,18 +31,19 @@ export class HomeComponent implements OnInit {
   newSeasonForm = false;
   changePasswordForm;
   regExp = configData.passwordRegEx;
-
+  logForm;
   ngOnInit() {
+
     this.homeService.getDetails().subscribe(response => {
       this.user = response.body;
       const { consultations, phone_number, room_number } = this.user;
       if (consultations === null) {
         this.user.consultations = 'Uzupełnij dane o konsultacjach!!';
       }
-      if(phone_number === null){
+      if (phone_number === null) {
         this.user.phone_number = 'Uzupełnij numer telefonu!';
       }
-      if(room_number === null){
+      if (room_number === null) {
         this.user.room_number = 'Uzupełnij numer pokoju!'
       }
       this.detailsRendered = true;
@@ -56,6 +58,7 @@ export class HomeComponent implements OnInit {
       }, error => {
         throwError(error);
       });
+
     }, error => {
       this.isAdmin = false;
     });
@@ -65,7 +68,10 @@ export class HomeComponent implements OnInit {
     Validators.minLength(8)]));
     this.changePasswordForm.addControl('repeatPassword', new FormControl('',
       [Validators.required, this.validateAreEqual.bind(this)]));
+    this.logForm = new FormGroup({});
+    this.logForm.addControl('dateField', new FormControl(new Date(), [Validators.required]));
   }
+
 
   private validateAreEqual(fieldControl: FormControl) {
     return fieldControl.value === this.changePasswordForm.controls['password'].value ? null : {
@@ -81,6 +87,9 @@ export class HomeComponent implements OnInit {
 
   editFirstName() {
     this.firstNameField = !this.firstNameField;
+  }
+  get dateField() {
+    return this.logForm.get('dateField');
   }
 
   sendFirstName = () => {
@@ -183,6 +192,24 @@ export class HomeComponent implements OnInit {
       console.log(response);
     }, error => {
       console.log(error);
-    })
+    });
+  }
+  downloadLogs(data: any) {
+    const blob = new Blob([data], { type: 'application/pdf' });
+    const url = window.URL.createObjectURL(blob);
+    window.open(url);
+  }
+  getLogs = () => {
+    const date = this.datepipe.transform(this.dateField.value, 'yyyy-MM-dd');
+    this.homeService.getPdf(date).subscribe((data: Blob) => {
+
+      const blob = new Blob([data], {type: 'application/pdf'});
+    
+      const downloadURL = window.URL.createObjectURL(data);
+      const link = document.createElement('a');
+      link.href = downloadURL;
+      link.download = `Raport${date}.pdf`;
+      link.click();
+    });
   }
 }

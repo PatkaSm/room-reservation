@@ -169,6 +169,15 @@ textarea {
     color: darkslategray;
 }
 
+.form-button {
+    font-size: 1.5vh!important;
+    width: 150px;
+}
+
+.form-control {
+    width: 150px;
+}
+
 @media only screen and (max-width: 1000px) {
     .container {
         padding-right: 0;
