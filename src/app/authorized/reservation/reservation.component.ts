@@ -21,6 +21,8 @@ export class ReservationComponent implements OnInit {
   resultPicked = false;
   pickedResult = [];
   showRooms = false;
+  errors = [];
+  error = false;
   constructor(private reserveService: ReservationService, public datepipe: DatePipe) { }
 
   ngOnInit() {
@@ -66,6 +68,7 @@ export class ReservationComponent implements OnInit {
   }
   searchForRooms() {
     this.results = [];
+    this.pickedResult = [];
     this.showRooms = true;
     const data = {
       reservation_date: this.datepipe.transform(this.date.value, 'yyyy-MM-dd'),
@@ -79,6 +82,8 @@ export class ReservationComponent implements OnInit {
       this.results = response.body;
     }, error => {
       console.log(error);
+      this.error = true;
+      this.errors = error.error.non_field_errors;
       throwError(error);
     });
   }

@@ -1,5 +1,10 @@
 <div class="container">
-    <div class="title">Wybierz kryteria wyszukiwania sali</div>
+    <div class="title">
+        <div>Wybierz kryteria wyszukiwania sali</div>
+        <div *ngIf="errors">
+            <div style="color:red" *ngFor="let error of errors">{{error}}</div>
+        </div>
+    </div>
     <div class="form">
         <form [formGroup]="reservationForm" (ngSubmit)="searchForRooms()" [name]="registerForm">
             <div class="form-box">
@@ -41,7 +46,7 @@
                 <input type="number" min="0" class="form-control" formControlName="numberOfComputers" />
             </div>
             <div class="form-box">
-                <button class="form-button" (click)="searchForRooms()">Wyszukaj</button>
+                <button class="form-button" type="submit">Wyszukaj</button>
             </div>
         </form>
     </div>

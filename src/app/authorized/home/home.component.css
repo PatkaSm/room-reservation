@@ -59,14 +59,18 @@ img {
     height: 25px;
 }
 
-img:hover {
-    cursor: pointer;
-    transform: scale(1.15);
-}
-
 .showed {
     display: flex;
     flex-direction: row;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+button:disabled {
+    transform: none;
+    cursor: default;
 }
 
 input {
