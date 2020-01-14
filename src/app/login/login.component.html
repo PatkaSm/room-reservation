@@ -18,6 +18,9 @@
                 <div *ngIf="wrongCredentials">
                     <span>Nieprawidłowe dane</span>
                 </div>
+                <div *ngIf="accountInactive">
+                    <span>Twoje konto nie jest jeszcze aktywne!</span>
+                </div>
             </div>
             <div class="option">
                 <button type="submit" class="form-button">

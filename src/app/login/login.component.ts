@@ -12,6 +12,7 @@ import { LoginService } from './login.service';
 export class LoginComponent implements OnInit {
   passwordRegex = configData.passwordRegEx;
   wrongCredentials = false;
+  accountInactive = false;
   public loginForm: FormGroup;
   constructor(public loginService: LoginService, private router: Router, private route: ActivatedRoute) {
     this.loginForm = new FormGroup({});
@@ -38,16 +39,20 @@ export class LoginComponent implements OnInit {
   }
   submitLogin() {
     this.loginService.login(this.data).subscribe(response => {
-      if (response === true) {
+      this.loginService.doLoginUser(response);
+      this.wrongCredentials = false;
+      this.accountInactive = false;
+      this.router.navigate(['home']);
+    }, error => {
+      if (error.status === 406) {
         this.wrongCredentials = false;
-        this.router.navigate(['home']);
-      } else {
-        this.wrongCredentials = true;
+        this.accountInactive = true;
       }
-    },
-      error => {
+      else {
         this.wrongCredentials = true;
+        this.accountInactive = false;
       }
+    }
     );
   }
 

@@ -11,13 +11,8 @@ export class LoginService {
     loggedUser: string;
     constructor(private http: HttpClient) { }
 
-    login(data): Observable<boolean> {
-        return this.http.post<any>(this.loginUrl, data, { observe: 'response' }).pipe(
-            tap(response => this.doLoginUser(response)),
-            mapTo(true),
-            catchError(error => {
-                return of(false);
-            }));
+    login(data): any {
+        return this.http.post<any>(this.loginUrl, data, { observe: 'response' })
     }
     doLoginUser(response) {
         const token = response.body.token;
